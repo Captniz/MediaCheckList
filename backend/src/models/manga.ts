@@ -4,7 +4,7 @@ import { title } from "process";
 
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const mangaSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -53,4 +53,4 @@ const bookSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Manga', mangaSchema);

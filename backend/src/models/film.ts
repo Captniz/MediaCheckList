@@ -4,7 +4,7 @@ import { title } from "process";
 
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const filmSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -13,7 +13,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    pages : {
+    duration : {
         type: Number,
         required: true
     },
@@ -31,20 +31,10 @@ const bookSchema = new Schema({
         required: false,
         default: 'Not Started'
     },
-    readPages : {
-        type: Number,
-        required: false,
-        default: 0
-    },
     description : {
         type: String,
         required: false,
         default: ''
-    },
-    saga : {
-        type: String,
-        required: false,
-        default: false
     },
     notes : {
         type: String,
@@ -53,4 +43,4 @@ const bookSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Film', filmSchema);

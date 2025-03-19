@@ -4,7 +4,7 @@ import { title } from "process";
 
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const gameSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -13,9 +13,10 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    pages : {
+    achievementNumber : {
         type: Number,
-        required: true
+        required: false,
+        default: 0
     },
     genre : {
         type: String,
@@ -31,7 +32,12 @@ const bookSchema = new Schema({
         required: false,
         default: 'Not Started'
     },
-    readPages : {
+    achievements : {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    feltCompletion : {
         type: Number,
         required: false,
         default: 0
@@ -53,4 +59,4 @@ const bookSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Game', gameSchema);

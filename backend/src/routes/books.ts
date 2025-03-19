@@ -1,31 +1,56 @@
 import express from 'express';
 
-const router = express.Router();
+const BookModels = require('../models/books');
+const Router = express.Router();
 
-// Get all books
-router.get('/', (req, res) => {
+
+// #=============== GET ===============#
+
+// All books
+Router.get('/', (req, res) => {
     res.json({ message: 'GET all books' });
-})
+});
 
-// Get single book
-router.get('/:id', (req, res) => {
+// Single book
+Router.get('/:id', (req, res) => {
     res.json({ message: `GET single book with id ${req.params.id}` });
-  })
+});
 
-// Add new book
-router.post('/', (req, res) => {
-    const { title, author, description } = req.body;
-    res.json({ message: 'POST a new books' });
+// #============= END GET =============#
+
+
+// #=============== POST ===============#
+
+// Single book
+Router.post('/', async (req, res) => {
+    const { title, author, pages, genre } = req.body;
+    try{
+        const book = await BookModels.create({ title, author, pages, genre });
+        res.status(201).json({ message: 'Book added successfully', book });
+    }catch(err){
+        res.status(500).json({ message: 'Error adding book', error: err }); 
+    }
 })
 
-// Delete a book
-router.delete ('/:id', (req, res) => {
+// #============= END POST =============#
+
+
+// #=============== DELETE ===============#
+
+Router.delete ('/:id', (req, res) => {
     res.json({ message: `DELETE single book with id ${req.params.id}` });
 })
 
+// #============= END DELETE =============
+
+
+// #=============== UPDATE ===============#
+
 // Update a book
-router.post('/:id', (req, res) => {
+Router.post('/:id', (req, res) => {
     res.json({ message: `UPDATE single book with id ${req.params.id}` });
 })
 
-module.exports = router;
+// #============= END UPDATE =============#
+
+module.exports = Router;

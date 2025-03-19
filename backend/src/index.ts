@@ -22,6 +22,9 @@ mongoose
 
 // #======== ROUTES =========#
 app.use('/api/books', bookRoutes);
+app.get('/', (req, res) => {
+  res.send('Hello World, WIP!');
+});
 // #====== END ROUTES ======#
 
 
