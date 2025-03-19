@@ -1,19 +1,33 @@
 import express from 'express';
 
-const BookModels = require('../models/books');
 const Router = express.Router();
-
+const BookModels = require('../models/books');
 
 // #=============== GET ===============#
 
 // All books
-Router.get('/', (req, res) => {
-    res.json({ message: 'GET all books' });
+Router.get('/', async (req, res) => {
+    try{
+        const book = await BookModels.find().sort({ title: 1 });
+        res.status(200).json({ message: 'All books', book });
+    }catch(err){
+        res.status(500).json({ message: 'Error searching books', error: err }); 
+    }
 });
 
 // Single book
-Router.get('/:id', (req, res) => {
-    res.json({ message: `GET single book with id ${req.params.id}` });
+Router.get('/:name', async (req, res) => {
+    
+    try{
+        const book = await BookModels.findOne({ title: req.params.name });
+        if (!book) {
+            res.status(404).json({ message: 'Book not found' });
+        }
+        res.status(200).json({ message: 'Single book', book });
+    }catch(err){
+        res.status(500).json({ message: 'Error searching book', error: err });
+    }
+
 });
 
 // #============= END GET =============#
@@ -38,7 +52,7 @@ Router.post('/', async (req, res) => {
 // #=============== DELETE ===============#
 
 Router.delete ('/:id', (req, res) => {
-    res.json({ message: `DELETE single book with id ${req.params.id}` });
+//TODO
 })
 
 // #============= END DELETE =============
@@ -48,7 +62,7 @@ Router.delete ('/:id', (req, res) => {
 
 // Update a book
 Router.post('/:id', (req, res) => {
-    res.json({ message: `UPDATE single book with id ${req.params.id}` });
+    //TODO
 })
 
 // #============= END UPDATE =============#

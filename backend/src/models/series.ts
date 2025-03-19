@@ -21,6 +21,11 @@ const seriesSchema = new Schema({
         type: String,
         required: true
     },
+    saga : {
+        type: String,
+        required: false,
+        default: 'None'
+    },
     releaseDate : {
         type: Date,
         required: false,

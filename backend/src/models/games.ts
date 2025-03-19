@@ -50,7 +50,7 @@ const gameSchema = new Schema({
     saga : {
         type: String,
         required: false,
-        default: false
+        default: 'None'
     },
     notes : {
         type: String,
