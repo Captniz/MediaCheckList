@@ -48,4 +48,4 @@ const filmSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Film', filmSchema);
+export default mongoose.model('Film', filmSchema);

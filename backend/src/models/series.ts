@@ -48,4 +48,4 @@ const seriesSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Series', seriesSchema);
+export default mongoose.model('Series', seriesSchema);

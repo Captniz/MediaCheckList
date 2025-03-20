@@ -53,4 +53,4 @@ const animeSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Anime', animeSchema);
+export default mongoose.model('Anime', animeSchema);

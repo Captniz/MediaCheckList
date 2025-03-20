@@ -53,4 +53,4 @@ const mangaSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Manga', mangaSchema);
+export default mongoose.model('Manga', mangaSchema);
