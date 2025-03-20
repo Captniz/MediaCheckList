@@ -1,7 +1,7 @@
 import BookModel from '../models/books';
 import mongoose from 'mongoose';
-import { Request, response, Response } from 'express';
-import { title } from 'process';
+import { Request, Response } from 'express';
+
 
 // #============= GET =============#
 
@@ -10,19 +10,12 @@ const GETBook  = async (req: Request, res: Response) => {
     try {
         const book = await BookModel.findOne({ title: req.params.name });
         
-        /*
-        if (!mongoose.Types.ObjectId.isValid(req.params.name)) {
-            res.status(404).json({ message: 'Invalid book name' });
-            return;
-        }
-        */
-        
         if (!book) {
             res.status(404).json({ message: 'Book not found' });
         }else{
             res.status(200).json({ message: 'Single book', book });
         }
-
+        
     }catch(err){
         res.status(500).json({ message: 'Error searching book', error: err });
     }
@@ -59,16 +52,68 @@ const POSTBook = async (req: Request, res: Response) => {
 
 // #============= DELETE =============#
 
+
+// ONE book 
+const DELETEBook  = async (req: Request, res: Response) => {    
+    try {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            res.status(404).json({ message: 'Invalid book id' });
+            return;
+        }
+        
+        const book = await BookModel.findByIdAndDelete(req.params.id);
+
+        if (!book) {
+            res.status(404).json({ message: 'Book not found' });
+            return;
+        }else{
+            res.status(200).json({ message: 'Book deleted successfully', book });
+        }
+        
+    }catch(err){
+        res.status(500).json({ message: 'Error searching book', error: err });
+    }
+};
+
 // #=========== END DELETE ===========#
 
 
-// #============= UPDATE =============#
+// #============= PATCH =============#
 
-// #=========== END UPDATE ===========#
+const PATCHBook  = async (req: Request, res: Response) => {    
+    try {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            res.status(404).json({ message: 'Invalid book id' });
+            return;
+        }
+        
+        const book = await BookModel.findOneAndUpdate({ _id: req.params.id }, {...req.body});
+        
+
+        if (!book) {
+            res.status(404).json({ message: 'Book not found' });
+            return;
+        }else{
+            const newbook = await BookModel.findOne({ _id: req.params.id });
+            res.status(200).json({ 
+                message: 'Book modified successfully',
+                was:book, 
+                now:newbook
+            });
+        }
+        
+    }catch(err){
+        res.status(500).json({ message: 'Error searching book', error: err });
+    }
+};
+
+// #=========== END PATCH ===========#
 
 
 export default { 
     GETBook,
     GETAllBook,
-    POSTBook
+    POSTBook,
+    DELETEBook,
+    PATCHBook
 };
