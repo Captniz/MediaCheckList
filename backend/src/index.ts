@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-const bookRoutes = require('./routes/books');
+import bookRoutes from './routes/books';
 
 // #============= SETUP =============#
 const app = express();
