@@ -5,9 +5,14 @@
 ## Essentials
 
 - add license
+- Aggiungi documentazione inline
+- Aggiungi descrizione progetto
+- Aggiungi readme
 
 ## Backend
 
+- Snellisci e riformatta il codice
+- Finisci i controller
 - Finish setting up database functions
   - Add paths to database models for storage
   - Add routes
