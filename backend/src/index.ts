@@ -35,9 +35,10 @@ app.use('/api/series', seriesRoutes);
 app.use('/api/books', mangaRoutes);
 // --- #====== END MEDIA ROUTES ======#
 
-app.get('/', (req, res) => {
-  res.send('Hello World, WIP!');
-});
+//app.get('/', (req, res) => {
+//  res.send('Hello World, WIP!');
+//});
+
 // #====== END ROUTES ======#
 
 
