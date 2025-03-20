@@ -1,6 +1,4 @@
-import { Stats } from "fs";
 import mongoose from "mongoose";
-import { title } from "process";
 
 const Schema = mongoose.Schema;
 
