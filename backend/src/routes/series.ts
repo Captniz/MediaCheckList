@@ -1,40 +1,40 @@
 import express from 'express';
-import bookController from '../controllers/books';
+import seriesController from '../controllers/series';
 
 
 const Router = express.Router();
 
 // #=============== GET ===============#
 
-// ONE book
-Router.get('/:name', bookController.GETBook);
+// ONE series
+Router.get('/:name', seriesController.GETSeries);
 
-// ALL books
-Router.get('/', bookController.GETAllBook);
+// ALL seriess
+Router.get('/', seriesController.GETAllSeries);
 
 // #============= END GET =============#
 
 
 // #=============== POST ===============#
 
-// Single book
-Router.post('/', bookController.POSTBook);
+// Single series
+Router.post('/', seriesController.POSTSeries);
 
 // #============= END POST =============#
 
 
 // #=============== DELETE ===============#
 
-// Single book
-Router.delete('/:id', bookController.DELETEBook);
+// Single series
+Router.delete('/:id', seriesController.DELETESeries);
 
 // #============= END DELETE =============
 
 
 // #=============== PATCH ===============#
 
-// Single book
-Router.patch('/:id', bookController.PATCHBook);
+// Single series
+Router.patch('/:id', seriesController.PATCHSeries);
 
 // #============= END PATCH =============#
 

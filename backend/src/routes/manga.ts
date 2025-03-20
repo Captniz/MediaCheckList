@@ -1,40 +1,40 @@
 import express from 'express';
-import bookController from '../controllers/books';
+import mangaController from '../controllers/manga';
 
 
 const Router = express.Router();
 
 // #=============== GET ===============#
 
-// ONE book
-Router.get('/:name', bookController.GETBook);
+// ONE manga
+Router.get('/:name', mangaController.GETManga);
 
-// ALL books
-Router.get('/', bookController.GETAllBook);
+// ALL mangas
+Router.get('/', mangaController.GETAllManga);
 
 // #============= END GET =============#
 
 
 // #=============== POST ===============#
 
-// Single book
-Router.post('/', bookController.POSTBook);
+// Single manga
+Router.post('/', mangaController.POSTManga);
 
 // #============= END POST =============#
 
 
 // #=============== DELETE ===============#
 
-// Single book
-Router.delete('/:id', bookController.DELETEBook);
+// Single manga
+Router.delete('/:id', mangaController.DELETEManga);
 
 // #============= END DELETE =============
 
 
 // #=============== PATCH ===============#
 
-// Single book
-Router.patch('/:id', bookController.PATCHBook);
+// Single manga
+Router.patch('/:id', mangaController.PATCHManga);
 
 // #============= END PATCH =============#
 

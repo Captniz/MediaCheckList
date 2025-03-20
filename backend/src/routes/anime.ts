@@ -1,40 +1,40 @@
 import express from 'express';
-import bookController from '../controllers/books';
+import animeController from '../controllers/anime';
 
 
 const Router = express.Router();
 
 // #=============== GET ===============#
 
-// ONE book
-Router.get('/:name', bookController.GETBook);
+// ONE anime
+Router.get('/:name', animeController.GETAnime);
 
-// ALL books
-Router.get('/', bookController.GETAllBook);
+// ALL animes
+Router.get('/', animeController.GETAllAnime);
 
 // #============= END GET =============#
 
 
 // #=============== POST ===============#
 
-// Single book
-Router.post('/', bookController.POSTBook);
+// Single anime
+Router.post('/', animeController.POSTAnime);
 
 // #============= END POST =============#
 
 
 // #=============== DELETE ===============#
 
-// Single book
-Router.delete('/:id', bookController.DELETEBook);
+// Single anime
+Router.delete('/:id', animeController.DELETEAnime);
 
 // #============= END DELETE =============
 
 
 // #=============== PATCH ===============#
 
-// Single book
-Router.patch('/:id', bookController.PATCHBook);
+// Single anime
+Router.patch('/:id', animeController.PATCHAnime);
 
 // #============= END PATCH =============#
 

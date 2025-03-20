@@ -1,40 +1,40 @@
 import express from 'express';
-import bookController from '../controllers/books';
+import filmController from '../controllers/films';
 
 
 const Router = express.Router();
 
 // #=============== GET ===============#
 
-// ONE book
-Router.get('/:name', bookController.GETBook);
+// ONE film
+Router.get('/:name', filmController.GETFilm);
 
-// ALL books
-Router.get('/', bookController.GETAllBook);
+// ALL films
+Router.get('/', filmController.GETAllFilm);
 
 // #============= END GET =============#
 
 
 // #=============== POST ===============#
 
-// Single book
-Router.post('/', bookController.POSTBook);
+// Single film
+Router.post('/', filmController.POSTFilm);
 
 // #============= END POST =============#
 
 
 // #=============== DELETE ===============#
 
-// Single book
-Router.delete('/:id', bookController.DELETEBook);
+// Single film
+Router.delete('/:id', filmController.DELETEFilm);
 
 // #============= END DELETE =============
 
 
 // #=============== PATCH ===============#
 
-// Single book
-Router.patch('/:id', bookController.PATCHBook);
+// Single film
+Router.patch('/:id', filmController.PATCHFilm);
 
 // #============= END PATCH =============#
 
