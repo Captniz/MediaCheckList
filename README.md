@@ -21,4 +21,7 @@
 ## Frontend
 
 - Add quick update to preview page (quick update pages of book)
-- Add file preview and download  
+- Add file preview and download 
+- mentre sei sul sito usa '/' per cercare e implementa anche tasti per scorrere le ricerche/azioni veloci/scorrere pagine (books,films,...)
+- la home ha la lista delle serie/libri/... che stai leggendo/guardando
+- Make the notes rendered in markdown
