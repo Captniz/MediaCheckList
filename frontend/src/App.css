@@ -1,38 +1,246 @@
-.App {
-  text-align: center;
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+  --red: #FB4934;
+  --orange: #FE8019;
+  --yellow: #FABD2F;
+  --green: #B8BB26;
+  --aqua: #8EC07C;
+  --cyan: #83A598;
+  --purple: #D3869B;
+}  
+
+/* GENERAL */
+.books{
+  color: #FB4934;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.series{
+  color: #FABD2F;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.manga{
+  color: #FE8019;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.anime{
+  color: #B8BB26;
+}
+
+.games{
+  color: #83A598;
+}
+
+.movies{
+  color: #D3869B;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}  
+
+/* NAVBAR */
+header {
+  background: #fff; 
+}  
+
+.navbar-container {
+  margin: 0 auto;
+  padding: 0px 3vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}  
+
+.navbar-title {
+  font-family: "Poppins";
+  font-size: 48px;
+  font-weight: bold;
+}  
+
+.media-pages-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}  
+
+.media-page-link{
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 24px;
+  font-weight: 600;
+
+  border-radius: 15px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  
+  -webkit-font-smoothing:antialiased;
+}  
+.media-page-link:hover {
+  box-shadow:  8px 8px 16px #c3c3c3,
+              -8px -8px 16px #ffffff;
+}  
+.media-page-link:active {
+  box-shadow: inset 8px 8px 16px #b8b8b8,
+            inset -8px -8px 16px #ffffff;
+}
+
+.login-button{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border-radius: 1000px;
+  min-height: 3vw;
+  min-width: 3vw;
+  border: transparent;
+  background-image: conic-gradient(var(--red), var(--orange), var(--yellow), var(--green), var(--aqua), var(--cyan), var(--purple), var(--red));
+  box-shadow:  8px 8px 16px #e3e3e3,
+               -8px -8px 16px #ffffff;
+transition: box-shadow 0.2s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.login-button p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+  background: white;
+  min-height: 2.5vw;
+  min-width: 2.5vw;
+  position: absolute;
+  font-size: 1.2vw;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease-in-out;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-button:hover {
+  box-shadow:  8px 8px 16px #c3c3c3,
+              -8px -8px 16px #ffffff;
 }
+
+
+.login-button p:active {
+  box-shadow: inset 8px 8px 16px #b8b8b8,
+            inset -8px -8px 16px #ffffff;
+}
+
+.active-link-book{
+  /*underline text*/
+  color:white;
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #9d0006, #FB4934);
+}
+
+.active-link-book:active{
+  /*underline text*/
+  color:white;
+  box-shadow: inset 8px 8px 16px #9d0006,
+            inset -8px -8px 16px #FB4934;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #9d0006, #FB4934);
+}
+
+
+.active-link-manga{
+  /*underline text*/
+  color:white;
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #af3a03, #fe8019);
+}
+
+.active-link-manga:active{
+  /*underline text*/
+  color:white;
+  box-shadow: inset 8px 8px 16px #af3a03,
+            inset -8px -8px 16px #fe8019;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #af3a03, #fe8019);
+}
+
+.active-link-series{
+  /*underline text*/
+  color:white;
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #b57614, #fabd2f);
+}
+
+.active-link-series:active{
+  /*underline text*/
+  color:white;
+  box-shadow: inset 8px 8px 16px #b57614,
+            inset -8px -8px 16px #fabd2f;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #b57614, #fabd2f);
+}
+
+.active-link-anime{
+  /*underline text*/
+  color:white;
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #79740e, #b8bb26);
+}
+
+.active-link-anime:active{
+  /*underline text*/
+  color:white;
+  box-shadow: inset 8px 8px 16px #79740e,
+            inset -8px -8px 16px #b8bb26;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #79740e, #b8bb26);
+}
+
+.active-link-games{
+  /*underline text*/
+  color:white;
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #076678, #83a598);
+}
+
+.active-link-games:active{
+  /*underline text*/
+  color:white;
+  box-shadow: inset 8px 8px 16px #076678,
+            inset -8px -8px 16px #83a598;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #076678, #83a598);
+}
+
+.active-link-movies{
+  /*underline text*/
+  color:white;
+  box-shadow:  8px 8px 16px #e3e3e3,
+              -8px -8px 16px #ffffff;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #8f3f71, #d3869b);
+}
+
+.active-link-movies:active{
+  /*underline text*/
+  color:white;
+  box-shadow: inset 8px 8px 16px #8f3f71,
+            inset -8px -8px 16px #d3869b;
+  transition: box-shadow 0.2s ease-in-out;
+  background: linear-gradient(145deg, #8f3f71, #d3869b);
+}
+
