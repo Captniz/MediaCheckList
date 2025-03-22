@@ -76,3 +76,5 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - mentre sei sul sito usa '/' per cercare e implementa anche tasti per scorrere le ricerche/azioni veloci/scorrere pagine (books,films,...)
 - la home ha la lista delle serie/libri/... che stai leggendo/guardando
 - Make the notes rendered in markdown
+- Cambia il colorore dello status negli elementi della lista in base allo status
+- finish padding on element list
