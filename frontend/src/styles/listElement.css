@@ -84,6 +84,10 @@
   margin-right: 1.5vw;
 }
 
+.counter-dot{
+  background-color: transparent;
+}
+
 /* #========== END COUNTER ============# */
 
 /* #========== TITLE SPACE ============# */
@@ -125,6 +129,8 @@
 /* #========== PROGRESS BAR ============# */
 .add-page{
   stroke: none;
+  margin-right: 0.5vw;
+  background-color: transparent;
 }
 
 .progress-counter{
@@ -142,6 +148,9 @@
   font-weight: 500;
   font-family: "IBM Plex Mono", monospace;
   color: black;
+  margin-right: 0.5vw;
+  min-width: 5vw;
+  text-align: center;
 }
 
 /* #======== END PROGRESS BAR ==========# */

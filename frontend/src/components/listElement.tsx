@@ -51,7 +51,7 @@ const ListElement = (
         <div className="left-side-container">
           <div className="counter-containter">
             <p className="counter-num" >1</p>
-            <SvgCounterDot className={cssClass}/>
+            <SvgCounterDot className={cssClass + " counter-dot"}/>
           </div>
           <div className="title-space">
             <h1 className="title">Oysaumi Punpun</h1>
