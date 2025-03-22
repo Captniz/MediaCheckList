@@ -8,6 +8,10 @@ It's purpose is to help you keep track of your media and to provide a way to sto
 
 As I grew tired of using multiple apps to keep track of my media, I decided to create this project to have everything in one place; also I wanted to learn more about full-stack development.
 
+## Images <!-- omit in toc -->
+
+![Home](./Example.png)
+
 ## Table of Contents  <!-- omit in toc -->
 
 - [Features](#features)
