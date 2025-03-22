@@ -75,6 +75,7 @@ header {
     font-size: 24px;
     font-weight: 600;
   
+    background-color: white;
     border-radius: 15px;
     background: linear-gradient(145deg, #e6e6e6, #FBFBFB);
     box-shadow:  8px 8px 16px #e3e3e3,
@@ -133,6 +134,10 @@ header {
               inset -8px -8px 16px #FBFBFB;
   }
   
+.active-link{
+  text-decoration: underline;
+}
+
   .active-link-book{
    
     color:white;
