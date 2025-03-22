@@ -47,39 +47,45 @@ const ListElement = (
     const statusClass = statusColors[status] || "";
 
     return (
-        <div className={"list-element " + cssClass}>
-          <div className="counter">
+      <div className={"list-element " + cssClass}>
+        <div className="left-side-container">
+          <div className="counter-containter">
             <p className="counter-num" >1</p>
             <SvgCounterDot className={cssClass}/>
           </div>
           <div className="title-space">
-            <h1 className="title">Title one</h1>
-            <p className="author">Author one</p>
+            <h1 className="title">Oysaumi Punpun</h1>
+            <p className="author">Dan Abnett</p>
           </div>
+        </div>
+        <div className="center-container">
           <div className="progress-counter">
             <button onClick={() => {}}>
-             <SvgAddPage className={cssClass + " add-page"}/>
+              <SvgAddPage className={cssClass + " add-page"}/>
             </button>
-             <div className="progress-num">
-                <span>{completedUnits}</span>
-                <span>/</span>
-                <span>{totUnits}</span>
-             </div>
-             <CircularProgressBar progress={40} cssClass={cssClass}/>
+            <div className="progress-num">
+              <span>{completedUnits}</span>
+              <span>/</span>
+              <span>{totUnits}</span>
+            </div>
+            <CircularProgressBar progress={40} cssClass={cssClass}/>
           </div>
-          <div className="element-field-container">
+          <div className="status-field-container">
             <span className="field-tag">Status</span>
             <span className={"status "+ statusClass}>{status}</span>
           </div>
+        </div>
+          <div className="right-side-container">
           <div className="element-field-container">
             <span className="field-tag">Genre</span>
             <span className="field">{genre}</span>
           </div>
-          <div className="element-field-container">
-            <span className="field-tag">Genre</span>
-            <span className="field">{saga}</span>
-          </div>
+        <div className="element-field-container">
+          <span className="field-tag">Saga</span>
+          <span className="field">{saga}</span>
         </div>
+      </div>
+    </div>
     );
 };
 

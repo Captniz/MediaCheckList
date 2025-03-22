@@ -55,7 +55,12 @@
   text-decoration-color: #D3869B;
 }
 
+/* #================= END GENERAL ===================# */
+
+/* #================= LIST ELEMENT ===================# */
+
 .list-element{
+  margin-top: 1vh;
   background-color: #FBFBFB;
   display: flex;
   align-items: center;
@@ -64,42 +69,69 @@
              -8px -8px 16px #ffffff;
 }
 
-.counter {
+/* #============ COUNTER ==============# */
+
+.counter-containter {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
 }
 
 .counter-num{
   font-weight: 500;
+  margin-right: 1.5vw;
 }
+
+/* #========== END COUNTER ============# */
+
+/* #========== TITLE SPACE ============# */
 
 .title-space{
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-start;
+  max-width: 100%; /* Ensure title doesn't overflow beyond container */
+  min-width: 80%;
+  margin-left: 1.5vw;
 }
 
-.add-page{
-  stroke: none;
-}
 
 .title{
   color: black;
   font-weight: 500;
-  font-size: 1.4em;
+  font-size: clamp(1em, 3vw, 1.4em);
+  margin-right: 0.5vw;
+  white-space: nowrap; /* Prevents the title from wrapping */
+  overflow: hidden; /* Hides any overflowed text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) when the text overflows */
+  max-width: 75%; /* Ensure title doesn't overflow beyond container */
 }
 
 .author{
   font-size: 0.8em;
   color: #8A8A8A;
   font-style: italic;
+  white-space: nowrap; /* Prevents the title from wrapping */
+  overflow: hidden; /* Hides any overflowed text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) when the text overflows */
+  padding-right: 0.2vw;
+  max-width: 25%;
+}
+
+/* #======== END TITLE SPACE ==========# */
+
+/* #========== PROGRESS BAR ============# */
+.add-page{
+  stroke: none;
 }
 
 .progress-counter{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 4vw;
 }
 
 .progress-counter button{
@@ -112,27 +144,19 @@
   color: black;
 }
 
-.element-field-container {
+/* #======== END PROGRESS BAR ==========# */
+
+/* #========== STATUS ============# */
+.status-field-container{
   display: flex;
   align-items: left;
   flex-direction: column;
-}
-
-.field-tag{
-  font-size: 0.9em;
-  color: #8A8A8A;
-  font-style: italic;
-}
-
-.field{
-  font-weight: 500;
-  font-size: 1em; 
-  color: black;
+  margin-left: 4vw; 
 }
 
 .status{
   font-weight: 500;
-  font-size: 1em; 
+  font-size: 1em;
 }
 
 .dropped{
@@ -154,3 +178,54 @@
 .completed{
   text-decoration: line-through;
 }
+
+/* #======== END STATUS ==========# */
+
+/* #========== TAGS ============# */
+
+.element-field-container {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  margin-right:3vw;
+}
+
+.field-tag{
+  font-size: 0.9em;
+  color: #8A8A8A;
+  font-style: italic;
+}
+.field{
+  font-weight: 500;
+  font-size: 1em; 
+  color: black;
+  margin-right: 2vw;
+}
+
+/* #======== END TAGS ==========# */
+
+/* #========= LAYOUT ===========# */
+
+.left-side-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  overflow: hidden; /* Hides overflowing content */
+}
+
+.right-side-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.center-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+/* #======= END LAYOUT =========# */
