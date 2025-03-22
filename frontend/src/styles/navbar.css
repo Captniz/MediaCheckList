@@ -44,7 +44,9 @@ a {
 
   
 header {
-    background: #FBFBFB; 
+    background: #FBFBFB;
+    box-shadow: 8px 8px 16px #b8b8b8,
+               -8px -8px 16px #FBFBFB; 
   }  
   
   .navbar-container {
@@ -94,7 +96,7 @@ header {
               inset -8px -8px 16px #FBFBFB;
   }
   
-  .login-button{
+  .quick-add-button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,12 +105,13 @@ header {
     min-width: 3vw;
     border: transparent;
     background-image: conic-gradient(var(--red), var(--orange), var(--yellow), var(--green), var(--aqua), var(--cyan), var(--purple), var(--red));
-    box-shadow:  8px 8px 16px #e3e3e3,
-                 -8px -8px 16px #FBFBFB;
+    
+                 box-shadow:  8px 8px 16px #c3c3c3,
+                -8px -8px 16px #FBFBFB;
   transition: box-shadow 0.2s ease-in-out;
   }
   
-  .login-button p {
+  .quick-add-button p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,13 +126,13 @@ header {
     
   }
   
-  .login-button:hover {
-    box-shadow:  8px 8px 16px #c3c3c3,
-                -8px -8px 16px #FBFBFB;
+  .quick-add-button:hover {
+    box-shadow:  8px 8px 16px #e3e3e3,
+                 -8px -8px 16px #FBFBFB;
   }
   
   
-  .login-button p:active {
+  .quick-add-button p:active {
     box-shadow: inset 8px 8px 16px #b8b8b8,
               inset -8px -8px 16px #FBFBFB;
   }

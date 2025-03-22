@@ -30,7 +30,7 @@ const Navbar = () => {
                 Movies
               </NavLink>
             </div>
-            <button className="login-button"><p>+</p></button>
+            <button className="quick-add-button"><p>+</p></button>
           </div>
         </header>
     );
