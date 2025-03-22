@@ -54,8 +54,8 @@ const ListElement = (
             <SvgCounterDot className={cssClass + " counter-dot"}/>
           </div>
           <div className="title-space">
-            <h1 className="title">Oysaumi Punpun</h1>
-            <p className="author">Dan Abnett</p>
+            <h1 className="title">Book 1</h1>
+            <p className="author">Pippo</p>
           </div>
         </div>
         <div className="center-container">
