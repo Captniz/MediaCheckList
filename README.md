@@ -78,3 +78,4 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Make the notes rendered in markdown
 - Cambia il colorore dello status negli elementi della lista in base allo status
 - finish padding on element list
+- make fully responsive
