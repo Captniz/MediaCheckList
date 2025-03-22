@@ -1,0 +1,336 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+@font-face {
+    font-family: "Fira Code Nerd Font";
+    font-style: normal;
+    font-weight: 200;
+    src: url('https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fura%20Code%20Light%20Nerd%20Font%20Complete.ttf') format('truetype');
+    font-variant-ligatures: none;
+  }
+
+/* layout */
+:root {
+    --primary: #1aac83;
+    --error: #e7195a;
+    --red: #FB4934;
+    --orange: #FE8019;
+    --yellow: #FABD2F;
+    --green: #B8BB26;
+    --aqua: #8EC07C;
+    --cyan: #83A598;
+    --purple: #D3869B;
+  }  
+  
+  .books-home-media-sect {
+    padding-right: 3vw;
+    padding-left: 3vw;
+    box-shadow: inset 20px 20px 60px #9d0006,
+            inset -20px -20px 60px var(--red);
+    border-radius: 1rem;
+    margin: 2vw;
+    padding-bottom: 2.3vw;
+    background-color: var(--red);
+  }
+
+.manga-home-media-sect {
+  padding-right: 3vw;
+  padding-left: 3vw;
+  box-shadow: inset 20px 20px 60px #af3a03,
+          inset -20px -20px 60px var(--orange);
+  border-radius: 1rem;
+  margin: 2vw;
+  padding-bottom: 2.3vw;
+  background-color: var(--orange);
+}
+
+.series-home-media-sect {
+  padding-right: 3vw;
+  padding-left: 3vw;
+  box-shadow: inset 20px 20px 60px #b57614,
+          inset -20px -20px 60px var(--yellow);
+  border-radius: 1rem;
+  margin: 2vw;
+  padding-bottom: 2.3vw;
+  background-color: var(--yellow);
+}
+
+.anime-home-media-sect {
+  padding-right: 3vw;
+  padding-left: 3vw;
+  box-shadow: inset 20px 20px 60px #79740e,
+          inset -20px -20px 60px var(--green);
+  border-radius: 1rem;
+  margin: 2vw;
+  padding-bottom: 2.3vw;
+  background-color: var(--green);
+}
+
+.games-home-media-sect {
+  padding-right: 3vw;
+  padding-left: 3vw;
+  box-shadow: inset 20px 20px 60px #076678,
+          inset -20px -20px 60px var(--cyan);
+  border-radius: 1rem;
+  margin: 2vw;
+  padding-bottom: 2.3vw;
+  background-color: var(--cyan);
+}
+
+.movies-home-media-sect {
+  padding-right: 3vw;
+  padding-left: 3vw;
+  box-shadow: inset 20px 20px 60px #8f3f71,
+          inset -20px -20px 60px var(--purple);
+  border-radius: 1rem;
+  margin: 2vw;
+  padding-bottom: 2.3vw;
+  background-color: var(--purple);
+}
+
+.books-home-media-sect .list-element{
+    margin-top: 2vh;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow:  8px 8px 16px #9d0006,
+               -8px -8px 16px var(--red);
+  }
+
+  .manga-home-media-sect .list-element{
+    margin-top: 2vh;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow:  8px 8px 16px #af3a03,
+               -8px -8px 16px var(--orange);
+  }
+
+  .series-home-media-sect .list-element{
+    margin-top: 2vh;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow:  8px 8px 16px #b57614,
+               -8px -8px 16px var(--yellow);
+  }
+
+  .anime-home-media-sect .list-element{
+    margin-top: 2vh;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow:  8px 8px 16px #79740e,
+               -8px -8px 16px var(--green);
+  }
+  
+  .games-home-media-sect .list-element{
+    margin-top: 2vh;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow:  8px 8px 16px #076678,
+               -8px -8px 16px var(--cyan);
+  }
+
+  .movies-home-media-sect .list-element{
+    margin-top: 2vh;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow:  8px 8px 16px #8f3f71,
+               -8px -8px 16px var(--purple);
+  }
+
+.sect-title {
+    font-weight: 700;
+    margin-left: 1vw;
+    text-transform: capitalize;
+}
+
+.sect-found{
+    font-weight: 300;
+    font-size: 1em;
+    font-style: italic;
+    margin-left: 1vw;
+}
+
+.sect-close-dot{
+    height: 1.1vw;
+    width: 1.1vw;
+    /*rotate 90 degrees*/
+    transform: rotate(90deg);
+}
+
+.sect-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    fill: white;
+}
+
+.sect-title-space{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+.books-home-media-sect .filter-button{
+    all:unset;
+    font-family: "Poppins";
+    background-color: #FBFBFB;
+    color: black;
+    border-radius: 20rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-shadow:  12px 12px 20px #9d0006,
+    -12px -12px 20px var(--red);
+    transition: box-shadow 0.2s ease-in-out;
+    
+    -webkit-font-smoothing:antialiased;
+}
+
+.manga-home-media-sect .filter-button{
+    all:unset;
+    font-family: "Poppins";
+    background-color: #FBFBFB;
+    color: black;
+    border-radius: 20rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-shadow:  12px 12px 20px #af3a03,
+    -12px -12px 20px var(--orange);
+    transition: box-shadow 0.2s ease-in-out;
+    
+    -webkit-font-smoothing:antialiased;
+}
+
+.series-home-media-sect .filter-button{
+    all:unset;
+    font-family: "Poppins";
+    background-color: #FBFBFB;
+    color: black;
+    border-radius: 20rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-shadow:  12px 12px 20px #b57614,
+    -12px -12px 20px var(--yellow);
+    transition: box-shadow 0.2s ease-in-out;
+    
+    -webkit-font-smoothing:antialiased;
+}
+
+.anime-home-media-sect .filter-button{
+    all:unset;
+    font-family: "Poppins";
+    background-color: #FBFBFB;
+    color: black;
+    border-radius: 20rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-shadow:  12px 12px 20px #79740e,
+    -12px -12px 20px var(--green);
+    transition: box-shadow 0.2s ease-in-out;
+    
+    -webkit-font-smoothing:antialiased;
+}
+
+.games-home-media-sect .filter-button{
+    all:unset;
+    font-family: "Poppins";
+    background-color: #FBFBFB;
+    color: black;
+    border-radius: 20rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-shadow:  12px 12px 20px #076678,
+    -12px -12px 20px var(--cyan);
+    transition: box-shadow 0.2s ease-in-out;
+    
+    -webkit-font-smoothing:antialiased;
+}
+
+.movies-home-media-sect .filter-button{
+    all:unset;
+    font-family: "Poppins";
+    background-color: #FBFBFB;
+    color: black;
+    border-radius: 20rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-shadow:  12px 12px 20px #8f3f71,
+    -12px -12px 20px var(--purple);
+    transition: box-shadow 0.2s ease-in-out;
+    
+    -webkit-font-smoothing:antialiased;
+}
+
+ 
+.books-home-media-sect .filter-button:hover {
+    box-shadow:  8px 8px 16px #9d0006,
+                -8px -8px 16px var(--red);
+  }  
+
+  .manga-home-media-sect .filter-button:hover {
+    box-shadow:  8px 8px 16px #af3a03,
+                -8px -8px 16px var(--orange);
+  }
+
+  .series-home-media-sect .filter-button:hover {
+    box-shadow:  8px 8px 16px #b57614,
+                -8px -8px 16px var(--yellow);
+  }
+
+  .anime-home-media-sect .filter-button:hover {
+    box-shadow:  8px 8px 16px #79740e,
+                -8px -8px 16px var(--green);
+  }
+
+  .games-home-media-sect .filter-button:hover {
+    box-shadow:  8px 8px 16px #076678,
+                -8px -8px 16px var(--cyan);
+  }
+
+  .movies-home-media-sect .filter-button:hover {
+    box-shadow:  8px 8px 16px #8f3f71,
+                -8px -8px 16px var(--purple);
+  }
+
+  .books-home-media-sect .filter-button:active {
+    box-shadow: inset 8px 8px 16px #b8b8b8,
+              inset -8px -8px 16px #FBFBFB;
+  }
+
+  .manga-home-media-sect .filter-button:active {
+    box-shadow: inset 8px 8px 16px #b8b8b8,
+              inset -8px -8px 16px #FBFBFB;
+  }
+
+  .series-home-media-sect .filter-button:active {
+    box-shadow: inset 8px 8px 16px #b8b8b8,
+              inset -8px -8px 16px #FBFBFB;
+  }
+
+  .anime-home-media-sect .filter-button:active {
+    box-shadow: inset 8px 8px 16px #b8b8b8,
+              inset -8px -8px 16px #FBFBFB;
+  }
+
+  .games-home-media-sect .filter-button:active {
+    box-shadow: inset 8px 8px 16px #b8b8b8,
+              inset -8px -8px 16px #FBFBFB;
+  }
+
+  .movies-home-media-sect .filter-button:active {
+    box-shadow: inset 8px 8px 16px #b8b8b8,
+              inset -8px -8px 16px #FBFBFB;
+  }
