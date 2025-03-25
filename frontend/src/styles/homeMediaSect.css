@@ -1,31 +1,7 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
-
-@font-face {
-    font-family: "Fira Code Nerd Font";
-    font-style: normal;
-    font-weight: 200;
-    src: url('https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fura%20Code%20Light%20Nerd%20Font%20Complete.ttf') format('truetype');
-    font-variant-ligatures: none;
-  }
-
-/* layout */
-:root {
-    --primary: #1aac83;
-    --error: #e7195a;
-    --red: #FB4934;
-    --orange: #FE8019;
-    --yellow: #FABD2F;
-    --green: #B8BB26;
-    --aqua: #8EC07C;
-    --cyan: #83A598;
-    --purple: #D3869B;
-  }  
-  
-  .books-home-media-sect {
+.books-home-media-sect {
     padding-right: 3vw;
     padding-left: 3vw;
-    box-shadow: inset 20px 20px 60px #9d0006,
+    box-shadow: inset 20px 20px 60px var(--hard-red),
             inset -20px -20px 60px var(--red);
     border-radius: 1rem;
     margin: 2vw;
@@ -36,7 +12,7 @@
 .manga-home-media-sect {
   padding-right: 3vw;
   padding-left: 3vw;
-  box-shadow: inset 20px 20px 60px #af3a03,
+  box-shadow: inset 20px 20px 60px var(--hard-orange),
           inset -20px -20px 60px var(--orange);
   border-radius: 1rem;
   margin: 2vw;
@@ -47,7 +23,7 @@
 .series-home-media-sect {
   padding-right: 3vw;
   padding-left: 3vw;
-  box-shadow: inset 20px 20px 60px #b57614,
+  box-shadow: inset 20px 20px 60px var(--hard-yellow),
           inset -20px -20px 60px var(--yellow);
   border-radius: 1rem;
   margin: 2vw;
@@ -58,7 +34,7 @@
 .anime-home-media-sect {
   padding-right: 3vw;
   padding-left: 3vw;
-  box-shadow: inset 20px 20px 60px #79740e,
+  box-shadow: inset 20px 20px 60px var(--hard-green),
           inset -20px -20px 60px var(--green);
   border-radius: 1rem;
   margin: 2vw;
@@ -69,7 +45,7 @@
 .games-home-media-sect {
   padding-right: 3vw;
   padding-left: 3vw;
-  box-shadow: inset 20px 20px 60px #076678,
+  box-shadow: inset 20px 20px 60px var(--hard-cyan),
           inset -20px -20px 60px var(--cyan);
   border-radius: 1rem;
   margin: 2vw;
@@ -80,7 +56,7 @@
 .movies-home-media-sect {
   padding-right: 3vw;
   padding-left: 3vw;
-  box-shadow: inset 20px 20px 60px #8f3f71,
+  box-shadow: inset 20px 20px 60px var(--hard-purple),
           inset -20px -20px 60px var(--purple);
   border-radius: 1rem;
   margin: 2vw;
@@ -90,61 +66,61 @@
 
 .books-home-media-sect .list-element{
     margin-top: 2vh;
-    background-color: #FBFBFB;
+    background-color: var(--soft-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow:  8px 8px 16px #9d0006,
+    box-shadow:  8px 8px 16px var(--hard-red),
                -8px -8px 16px var(--red);
   }
 
   .manga-home-media-sect .list-element{
     margin-top: 2vh;
-    background-color: #FBFBFB;
+    background-color: var(--soft-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow:  8px 8px 16px #af3a03,
+    box-shadow:  8px 8px 16px var(--hard-orange),
                -8px -8px 16px var(--orange);
   }
 
   .series-home-media-sect .list-element{
     margin-top: 2vh;
-    background-color: #FBFBFB;
+    background-color: var(--soft-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow:  8px 8px 16px #b57614,
+    box-shadow:  8px 8px 16px var(--hard-yellow),
                -8px -8px 16px var(--yellow);
   }
 
   .anime-home-media-sect .list-element{
     margin-top: 2vh;
-    background-color: #FBFBFB;
+    background-color: var(--soft-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow:  8px 8px 16px #79740e,
+    box-shadow:  8px 8px 16px var(--hard-green),
                -8px -8px 16px var(--green);
   }
   
   .games-home-media-sect .list-element{
     margin-top: 2vh;
-    background-color: #FBFBFB;
+    background-color: var(--soft-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow:  8px 8px 16px #076678,
+    box-shadow:  8px 8px 16px var(--hard-cyan),
                -8px -8px 16px var(--cyan);
   }
 
   .movies-home-media-sect .list-element{
     margin-top: 2vh;
-    background-color: #FBFBFB;
+    background-color: var(--soft-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow:  8px 8px 16px #8f3f71,
+    box-shadow:  8px 8px 16px var(--hard-purple),
                -8px -8px 16px var(--purple);
   }
 
@@ -162,9 +138,8 @@
 }
 
 .sect-close-dot{
-    height: 1.1vw;
-    width: 1.1vw;
-    /*rotate 90 degrees*/
+    height: 2.3vh;
+    width: 2.3vh;
     transform: rotate(90deg);
 }
 
@@ -187,12 +162,12 @@
 .books-home-media-sect .filter-button{
     all:unset;
     font-family: "Poppins";
-    background-color: #FBFBFB;
-    color: black;
+    background-color: var(--soft-white);
+    color: var(--hard-gray);
     border-radius: 20rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    box-shadow:  12px 12px 20px #9d0006,
+    box-shadow:  12px 12px 20px var(--hard-red),
     -12px -12px 20px var(--red);
     transition: box-shadow 0.2s ease-in-out;
     
@@ -202,12 +177,12 @@
 .manga-home-media-sect .filter-button{
     all:unset;
     font-family: "Poppins";
-    background-color: #FBFBFB;
-    color: black;
+    background-color: var(--soft-white);
+    color: var(--hard-gray);
     border-radius: 20rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    box-shadow:  12px 12px 20px #af3a03,
+    box-shadow:  12px 12px 20px var(--hard-orange),
     -12px -12px 20px var(--orange);
     transition: box-shadow 0.2s ease-in-out;
     
@@ -217,12 +192,12 @@
 .series-home-media-sect .filter-button{
     all:unset;
     font-family: "Poppins";
-    background-color: #FBFBFB;
-    color: black;
+    background-color: var(--soft-white);
+    color: var(--hard-gray);
     border-radius: 20rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    box-shadow:  12px 12px 20px #b57614,
+    box-shadow:  12px 12px 20px var(--hard-yellow),
     -12px -12px 20px var(--yellow);
     transition: box-shadow 0.2s ease-in-out;
     
@@ -232,12 +207,12 @@
 .anime-home-media-sect .filter-button{
     all:unset;
     font-family: "Poppins";
-    background-color: #FBFBFB;
-    color: black;
+    background-color: var(--soft-white);
+    color: var(--hard-gray);
     border-radius: 20rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    box-shadow:  12px 12px 20px #79740e,
+    box-shadow:  12px 12px 20px var(--hard-green),
     -12px -12px 20px var(--green);
     transition: box-shadow 0.2s ease-in-out;
     
@@ -247,12 +222,12 @@
 .games-home-media-sect .filter-button{
     all:unset;
     font-family: "Poppins";
-    background-color: #FBFBFB;
-    color: black;
+    background-color: var(--soft-white);
+    color: var(--hard-gray);
     border-radius: 20rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    box-shadow:  12px 12px 20px #076678,
+    box-shadow:  12px 12px 20px var(--hard-cyan),
     -12px -12px 20px var(--cyan);
     transition: box-shadow 0.2s ease-in-out;
     
@@ -262,12 +237,12 @@
 .movies-home-media-sect .filter-button{
     all:unset;
     font-family: "Poppins";
-    background-color: #FBFBFB;
-    color: black;
+    background-color: var(--soft-white);
+    color: var(--hard-gray);
     border-radius: 20rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    box-shadow:  12px 12px 20px #8f3f71,
+    box-shadow:  12px 12px 20px var(--hard-purple),
     -12px -12px 20px var(--purple);
     transition: box-shadow 0.2s ease-in-out;
     
@@ -276,61 +251,61 @@
 
  
 .books-home-media-sect .filter-button:hover {
-    box-shadow:  8px 8px 16px #9d0006,
+    box-shadow:  8px 8px 16px var(--hard-red),
                 -8px -8px 16px var(--red);
   }  
 
   .manga-home-media-sect .filter-button:hover {
-    box-shadow:  8px 8px 16px #af3a03,
+    box-shadow:  8px 8px 16px var(--hard-orange),
                 -8px -8px 16px var(--orange);
   }
 
   .series-home-media-sect .filter-button:hover {
-    box-shadow:  8px 8px 16px #b57614,
+    box-shadow:  8px 8px 16px var(--hard-yellow),
                 -8px -8px 16px var(--yellow);
   }
 
   .anime-home-media-sect .filter-button:hover {
-    box-shadow:  8px 8px 16px #79740e,
+    box-shadow:  8px 8px 16px var(--hard-green),
                 -8px -8px 16px var(--green);
   }
 
   .games-home-media-sect .filter-button:hover {
-    box-shadow:  8px 8px 16px #076678,
+    box-shadow:  8px 8px 16px var(--hard-cyan),
                 -8px -8px 16px var(--cyan);
   }
 
   .movies-home-media-sect .filter-button:hover {
-    box-shadow:  8px 8px 16px #8f3f71,
+    box-shadow:  8px 8px 16px var(--hard-purple),
                 -8px -8px 16px var(--purple);
   }
 
   .books-home-media-sect .filter-button:active {
-    box-shadow: inset 8px 8px 16px #b8b8b8,
-              inset -8px -8px 16px #FBFBFB;
+    box-shadow: inset 8px 8px 16px var(--hard-shadow-white),
+              inset -8px -8px 16px var(--soft-white);
   }
 
   .manga-home-media-sect .filter-button:active {
-    box-shadow: inset 8px 8px 16px #b8b8b8,
-              inset -8px -8px 16px #FBFBFB;
+    box-shadow: inset 8px 8px 16px var(--hard-shadow-white),
+              inset -8px -8px 16px var(--soft-white);
   }
 
   .series-home-media-sect .filter-button:active {
-    box-shadow: inset 8px 8px 16px #b8b8b8,
-              inset -8px -8px 16px #FBFBFB;
+    box-shadow: inset 8px 8px 16px var(--hard-shadow-white),
+              inset -8px -8px 16px var(--soft-white);
   }
 
   .anime-home-media-sect .filter-button:active {
-    box-shadow: inset 8px 8px 16px #b8b8b8,
-              inset -8px -8px 16px #FBFBFB;
+    box-shadow: inset 8px 8px 16px var(--hard-shadow-white),
+              inset -8px -8px 16px var(--soft-white);
   }
 
   .games-home-media-sect .filter-button:active {
-    box-shadow: inset 8px 8px 16px #b8b8b8,
-              inset -8px -8px 16px #FBFBFB;
+    box-shadow: inset 8px 8px 16px var(--hard-shadow-white),
+              inset -8px -8px 16px var(--soft-white);
   }
 
   .movies-home-media-sect .filter-button:active {
-    box-shadow: inset 8px 8px 16px #b8b8b8,
-              inset -8px -8px 16px #FBFBFB;
+    box-shadow: inset 8px 8px 16px var(--hard-shadow-white),
+              inset -8px -8px 16px var(--soft-white);
   }

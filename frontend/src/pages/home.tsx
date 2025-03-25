@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../styles/home.css";
 import Navbar from "../components/navbar";
 import ListElement from "../components/listElement";
 import HomeMediaSect from "../components/homeMediaSection";

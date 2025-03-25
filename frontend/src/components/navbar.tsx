@@ -20,7 +20,7 @@ const Navbar = () => {
               <NavLink className={({ isActive }) =>  isActive ? "media-page-link active-link-series" : "media-page-link series"} to="/series">
                 Series
               </NavLink>
-              <NavLink className={({ isActive }) =>  isActive ? "media-page-link active-link-anime" : "anime media-page-link"} to="/anime">
+              <NavLink className={({ isActive }) =>  isActive ? "media-page-link active-link-anime" : "media-page-link anime"} to="/anime">
                 Anime
               </NavLink>
               <NavLink className={({ isActive }) =>  isActive ? "media-page-link active-link-games" : "media-page-link games"} to="/games">

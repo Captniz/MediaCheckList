@@ -1,58 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-/* layout */
-:root {
-  --primary: #1aac83;
-  --error: #e7195a;
-  --red: #FB4934;
-  --orange: #FE8019;
-  --yellow: #FABD2F;
-  --green: #B8BB26;
-  --aqua: #8EC07C;
-  --cyan: #83A598;
-  --purple: #D3869B;
-}  
-
 .books{
-  color: #FB4934;
-  fill: #FB4934;
-  stroke: #FB4934;
-  text-decoration-color: #FB4934;
+  color: var(--red);
+  fill: var(--red);
+  stroke: var(--red);
+  text-decoration-color: var(--red);
 }
 
 .series{
-  color: #FABD2F;
-  fill: #FABD2F;
-  stroke: #FABD2F;
-  text-decoration-color: #FABD2F;
+  color: var(--yellow);
+  fill: var(--yellow);
+  stroke: var(--yellow);
+  text-decoration-color: var(--yellow);
 }
 
 .manga{
-  color: #FE8019;
-  fill: #FE8019;
-  stroke: #FE8019;
-  text-decoration-color: #FE8019;
+  color: var(--orange);
+  fill: var(--orange);
+  stroke: var(--orange);
+  text-decoration-color: var(--orange);
 }
 
 .anime{
-  color: #B8BB26;
-  fill: #B8BB26;
-  stroke: #B8BB26;
-  text-decoration-color: #B8BB26;
+  color: var(--green);
+  fill: var(--green);
+  stroke: var(--green);
+  text-decoration-color: var(--green);
 }
 
 .games{
-  color: #83A598;
-  fill: #83A598;
-  stroke: #83A598;
-  text-decoration-color: #83A598;
+  color: var(--cyan);
+  fill: var(--cyan);
+  stroke: var(--cyan);
+  text-decoration-color: var(--cyan);
 }
 
 .movies{
-  color: #D3869B;
-  fill: #D3869B;
-  stroke: #D3869B;
-  text-decoration-color: #D3869B;
+  color: var(--purple);
+  fill: var(--purple);
+  stroke: var(--purple);
+  text-decoration-color: var(--purple);
 }
 
 /* #================= END GENERAL ===================# */
@@ -61,12 +46,12 @@
 
 .list-element{
   margin-top: 1vh;
-  background-color: #FBFBFB;
+  background-color: var(--soft-white);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow:  8px 8px 16px #d9d9d9,
-             -8px -8px 16px #ffffff;
+  box-shadow:  8px 8px 16px var(--soft-shadow-white),
+             -8px -8px 16px var(--white);
 }
 
 /* #============ COUNTER ==============# */
@@ -115,7 +100,7 @@
 
 .author{
   font-size: 0.8em;
-  color: #8A8A8A;
+  color: var(--gray);
   font-style: italic;
   white-space: nowrap; /* Prevents the title from wrapping */
   overflow: hidden; /* Hides any overflowed text */
@@ -201,7 +186,7 @@
 
 .field-tag{
   font-size: 0.9em;
-  color: #8A8A8A;
+  color: var(--gray);
   font-style: italic;
 }
 .field{
