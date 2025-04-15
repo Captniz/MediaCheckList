@@ -3,6 +3,12 @@
 
 /* layout */
 :root {
+  --accent: var(--cyan);
+  --hard-accent: var(--hard-cyan);
+
+  --alt-accent: var(--orange);
+  --alt-hard-accent: var(--hard-orange);
+
   --red: #FB4934;
   --hard-red: #9d0006;
   --orange: #FE8019;
