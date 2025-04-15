@@ -1,0 +1,28 @@
+.circular-progress {
+    width: 1.3vw;
+    height: 1.3vw;
+}
+
+/* Background circle */
+.progress-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 15;
+}
+
+/* Progress circle */
+.progress-bar {
+    fill: none;
+    stroke-width: 15;
+    transition: stroke-dashoffset 0.5s ease-in-out;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+/* Progress text */
+.progress-text {
+    font-size: 20px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
