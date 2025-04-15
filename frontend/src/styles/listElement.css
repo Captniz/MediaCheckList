@@ -82,8 +82,12 @@
 
 /* #========== PROGRESS BAR ============# */
 .add-page {
+	cursor: pointer;
 	stroke: none;
 	margin-right: 0.5vw;
+	margin-top: 0.3em;
+	height: 1em;
+	width: 1em;
 	background-color: transparent;
 	color: var(--hard-accent);
 	fill: var(--hard-accent);
