@@ -4,9 +4,11 @@
 /* layout */
 :root {
   --accent: var(--cyan);
+  --mild-accent: #5b7c79;
   --hard-accent: var(--hard-cyan);
 
   --alt-accent: var(--orange);
+  --alt-mild-accent: #bf4b0c;
   --alt-hard-accent: var(--hard-orange);
 
   --red: #FB4934;
