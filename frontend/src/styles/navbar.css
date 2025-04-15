@@ -14,7 +14,6 @@ header {
 	margin: 0em;
 	background: var(--soft-white);
 	height: 6vh;
-	border-bottom: 2px solid var(--hard-gray);
 	min-height: 60px;
 	margin-bottom: 1vh;
 }
@@ -42,6 +41,8 @@ header {
 
 .active-media-page-link {
 	color: var(--hard-accent);
+	font-weight: 700;
+	text-decoration: underline 3px ;
 }
 
 .quick-add-button {
@@ -59,6 +60,4 @@ header {
 	color: white;
 	font-family: "Poppins";
 }
-.active-link {
-	text-decoration: 0.4em underline;
-}
+
