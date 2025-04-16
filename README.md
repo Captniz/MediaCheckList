@@ -12,7 +12,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 
 ![Home](./Example.png)
 
-## Table of Contents  <!-- omit in toc -->
+## Table of Contents <!-- omit in toc -->
 
 - [Features](#features)
 - [How to run](#how-to-run)
@@ -21,7 +21,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - [Backend](#backend)
 - [Frontend](#frontend)
 
-## Features  
+## Features
 
 > [ ] = not implemented, [x] = implemented
 
@@ -34,11 +34,12 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - [ ] Search, retrieve and download media from the website
 - [ ] Read and watch media directly from the website
 
-## How to run  
+## How to run
 
 > **Note**: This project is still in development and is not yet ready for production. This guide is for development purposes only.
 
 1. Clone the repository
+
    1. In the backend folder, create a `.env` file with the following content:
 
       ```env
@@ -76,7 +77,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 ## Frontend
 
 - Add quick update to preview page (quick update pages of book)
-- Add file preview and download 
+- Add file preview and download
 - mentre sei sul sito usa '/' per cercare e implementa anche tasti per scorrere le ricerche/azioni veloci/scorrere pagine (books,films,...)
 - la home ha la lista delle serie/libri/... che stai leggendo/guardando
 - Make the notes rendered in markdown
@@ -85,3 +86,6 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - make fully responsive
 - fix CSS inheritance because its shit
   - Same with css in general, theres code duplication everywhere
+- Premi / per cercare localmente shift+/ per globale
+- 1 2 3 4 per cambiare tab
+- tasti per sortare/filtrare
