@@ -64,6 +64,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Aggiungi documentazione inline
 - Aggiungi descrizione progetto
 - Aggiungi readme
+- Documenta backend-frontend
 
 ## Backend
 
@@ -89,3 +90,5 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Premi / per cercare localmente shift+/ per globale
 - 1 2 3 4 per cambiare tab
 - tasti per sortare/filtrare
+- Finisci le varie tipologie di visualizzazione dei listElement
+- Implementa Le immagini
