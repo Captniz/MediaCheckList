@@ -1,17 +1,20 @@
 import { NavLink } from "react-router-dom";
-import "../styles/navbar.css";
+import "../styles/Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ title, path }: { title: string; path: string }) => {
 	return (
 		<header>
 			<div className="navbar-container">
+				<NavLink className="active-media-page-link navbar-title" to={path}>
+					{title}
+				</NavLink>
 				<NavLink
 					className={({ isActive }) =>
 						isActive ? "active-media-page-link" : ""
 					}
 					to="/"
 				>
-					<h1 className="navbar-title">Home</h1>
+					Home
 				</NavLink>
 				<NavLink
 					className={({ isActive }) =>

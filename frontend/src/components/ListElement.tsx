@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "../styles/listElement.css";
+import "../styles/ListElement.css";
 import { ReactComponent as SvgCounterDot } from "../assets/counterDot.svg";
 import { ReactComponent as SvgAddPage } from "../assets/addPage.svg";
 import { ReactComponent as SvgSeparator } from "../assets/separator.svg";
-import CircularProgressBar from "./circularProgressBar";
+import CircularProgressBar from "./CircularProgressBar";
 import ReactMarkdown from 'react-markdown';
 
 const ListElement = ({

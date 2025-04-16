@@ -1,6 +1,5 @@
 import React from "react";
-import "../styles/homeMediaSect.css";
-import { ReactComponent as SvgCounterDot } from "../assets/counterDot.svg";
+import "../styles/HomeMediaSection.css";
 
 const HomeMediaSect = ({
 	children,
@@ -18,7 +17,7 @@ const HomeMediaSect = ({
 					<h1 className="sect-title">{sectionName}</h1>
 					<h3 className="sect-found">
 						{" "}
-						Found {itemsFound} <b>active</b> {sectionName}
+						Found <i>{itemsFound}</i> <b>active</b> {sectionName}
 					</h3>
 				</div>
 				{/* <button className="filter-button">Filter</button> */}
