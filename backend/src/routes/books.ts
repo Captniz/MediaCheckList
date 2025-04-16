@@ -6,11 +6,12 @@ const Router = express.Router();
 
 // #=============== GET ===============#
 
-// ONE book
-Router.get('/:name', bookController.GETBook);
 
 // ALL books
 Router.get('/', bookController.GETAllBook);
+
+// Filter books
+Router.get('/search', bookController.GETFilterBook);
 
 // #============= END GET =============#
 

@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
+import { Manga } from "../../../types/item";
 
 const mangaSchema = new Schema({
     title: {
@@ -11,7 +12,7 @@ const mangaSchema = new Schema({
         type: String,
         required: true
     },
-    pages : {
+    chapters : {
         type: Number,
         required: true
     },
@@ -29,7 +30,7 @@ const mangaSchema = new Schema({
         required: false,
         default: 'Not Started'
     },
-    readPages : {
+    readChapters : {
         type: Number,
         required: false,
         default: 0
@@ -51,4 +52,4 @@ const mangaSchema = new Schema({
     }
 }, {timestamps: true});
 
-export default mongoose.model('Manga', mangaSchema);
+export default mongoose.model<Manga>('Manga', mangaSchema);

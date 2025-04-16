@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Film } from "../../../types/item";
 
 const Schema = mongoose.Schema;
 
@@ -46,4 +47,4 @@ const filmSchema = new Schema({
     }
 }, {timestamps: true});
 
-export default mongoose.model('Film', filmSchema);
+export default mongoose.model<Film>('Film', filmSchema);

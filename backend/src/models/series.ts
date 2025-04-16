@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Series } from "../../../types/item";
 
 const Schema = mongoose.Schema;
 
@@ -46,4 +47,4 @@ const seriesSchema = new Schema({
     }
 }, {timestamps: true});
 
-export default mongoose.model('Series', seriesSchema);
+export default mongoose.model<Series>('Series', seriesSchema);

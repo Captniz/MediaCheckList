@@ -1,42 +1,37 @@
-import express from 'express';
-import gamesController from '../controllers/games';
-
+import express from "express";
+import gamesController from "../controllers/games";
 
 const Router = express.Router();
 
 // #=============== GET ===============#
 
-// ONE games
-Router.get('/:name', gamesController.GETGame);
+// ALL games
+Router.get("/", gamesController.GETAllGame);
 
-// ALL gamess
-Router.get('/', gamesController.GETAllGame);
+// ALL FILTERED games
+Router.get("/search", gamesController.GETFilteredGame);
 
 // #============= END GET =============#
-
 
 // #=============== POST ===============#
 
 // Single games
-Router.post('/', gamesController.POSTGame);
+Router.post("/", gamesController.POSTGame);
 
 // #============= END POST =============#
-
 
 // #=============== DELETE ===============#
 
 // Single games
-Router.delete('/:id', gamesController.DELETEGame);
+Router.delete("/:id", gamesController.DELETEGame);
 
 // #============= END DELETE =============
-
 
 // #=============== PATCH ===============#
 
 // Single games
-Router.patch('/:id', gamesController.PATCHGame);
+Router.patch("/:id", gamesController.PATCHGame);
 
 // #============= END PATCH =============#
-
 
 export default Router;

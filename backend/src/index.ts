@@ -32,7 +32,7 @@ app.use('/api/anime', animeRoutes);
 app.use('/api/films', filmRoutes);
 app.use('/api/games', gameRoutes);
 app.use('/api/series', seriesRoutes);
-app.use('/api/books', mangaRoutes);
+app.use('/api/manga', mangaRoutes);
 // --- #====== END MEDIA ROUTES ======#
 
 //app.get('/', (req, res) => {
