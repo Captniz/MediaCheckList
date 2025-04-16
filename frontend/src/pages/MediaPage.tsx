@@ -1,4 +1,4 @@
-import ListElement from "../components/ListElement";
+import ListElement from "../components/ListElementReading";
 import Navbar from "../components/Navbar";
 import "../styles/MediaPage.css";
 
@@ -28,46 +28,7 @@ const Books = ({ sectionName }: { sectionName: string }) => {
 				</div>
 			</div>
 			<div className="media-page">
-				<ListElement
-					totUnits={1000}
-					completedUnits={100}
-					status="Active"
-					genre={"Genre 1"}
-					saga={"Saga 1"}
-					notes={
-						"# Hello Markdown!\nThis is **bold** and this is *italic*.\n- This is a list\n- This is another list\n- This is a third list\n\n[This is a link](https://example.com)\n\n![This is an image](https://example.com/image.png)\n\n```javascript\nconst x = 1;\nconsole.log(x);\n```\n\n> This is a blockquote\n\n---\n\nThis is a horizontal rule.\n"
-					}
-				/>
-				<ListElement
-					totUnits={1000}
-					completedUnits={100}
-					status="Active"
-					genre={"Genre 1"}
-					saga={"Saga 1"}
-					notes={
-						"# Hello Markdown!\nThis is **bold** and this is *italic*.\n- This is a list\n- This is another list\n- This is a third list\n\n[This is a link](https://example.com)\n\n![This is an image](https://example.com/image.png)\n\n```javascript\nconst x = 1;\nconsole.log(x);\n```\n\n> This is a blockquote\n\n---\n\nThis is a horizontal rule.\n"
-					}
-				/>
-				<ListElement
-					totUnits={1000}
-					completedUnits={100}
-					status="Active"
-					genre={"Genre 1"}
-					saga={"Saga 1"}
-					notes={
-						"# Hello Markdown!\nThis is **bold** and this is *italic*.\n- This is a list\n- This is another list\n- This is a third list\n\n[This is a link](https://example.com)\n\n![This is an image](https://example.com/image.png)\n\n```javascript\nconst x = 1;\nconsole.log(x);\n```\n\n> This is a blockquote\n\n---\n\nThis is a horizontal rule.\n"
-					}
-				/>
-				<ListElement
-					totUnits={1000}
-					completedUnits={100}
-					status="Active"
-					genre={"Genre 1"}
-					saga={"Saga 1"}
-					notes={
-						"# Hello Markdown!\nThis is **bold** and this is *italic*.\n- This is a list\n- This is another list\n- This is a third list\n\n[This is a link](https://example.com)\n\n![This is an image](https://example.com/image.png)\n\n```javascript\nconst x = 1;\nconsole.log(x);\n```\n\n> This is a blockquote\n\n---\n\nThis is a horizontal rule.\n"
-					}
-				/>
+				{/* Elements */}
 			</div>
 		</div>
 	);
