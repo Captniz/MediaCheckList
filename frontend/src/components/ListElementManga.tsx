@@ -4,22 +4,32 @@ import { ReactComponent as SvgCounterDot } from "../assets/counterDot.svg";
 import { ReactComponent as SvgAddPage } from "../assets/addPage.svg";
 import { ReactComponent as SvgSeparator } from "../assets/separator.svg";
 import CircularProgressBar from "./CircularProgressBar";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
 
 const ListElement = ({
-	totPages,
-	readPages,
+	totChapters,
+	readChapters,
 	status,
 	genre,
 	saga,
-	notes
+	notes,
+	title,
+	author,
+	ctr,
+	description,
+	date,
 }: {
-	totPages: number;
-	readPages: number;
+	totChapters: number;
+	readChapters: number;
 	status: string;
 	genre: string;
 	saga: string;
 	notes: string;
+	title: string;
+	author: string;
+	ctr: number;
+	description: string;
+	date: Date;
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +51,7 @@ const ListElement = ({
 			<div className="list-element" style={{ height: isOpen ? "5vh" : "100%" }}>
 				<div className="left-side-container">
 					<div className="counter-containter">
-						<p className="counter-num">1</p>
+						<p className="counter-num">{ctr}</p>
 						<button
 							className="collapse-button"
 							style={{ transform: isOpen ? "rotate(90deg)" : "rotate(0deg)" }}
@@ -51,8 +61,8 @@ const ListElement = ({
 						</button>
 					</div>
 					<div className="title-space">
-						<h1 className="title">Horus Rising</h1>
-						<p className="author">Inio Asano</p>
+						<h1 className="title">{title}</h1>
+						<p className="author">{author}</p>
 					</div>
 				</div>
 				<div className="center-container">
@@ -61,12 +71,13 @@ const ListElement = ({
 							<SvgAddPage className=" add-page" />
 						</button>
 						<div className="progress-num">
-							<span>{readPages}</span>
+							<span>{readChapters}</span>
 							<span>/</span>
-							<span>{totPages}</span>
+							<span>{totChapters}</span>
+							<span className="type-tag">Chp.</span>
 						</div>
 						<CircularProgressBar
-							progress={(readPages / totPages) * 100}
+							progress={(readChapters / totChapters) * 100}
 							cssClass="circ-progress"
 						/>
 					</div>
@@ -88,9 +99,9 @@ const ListElement = ({
 			</div>
 			<div
 				style={{
-					height: isOpen ? "31vh" : "0%",
-					paddingBottom: isOpen ? "1vw" : 0,
-					paddingTop: isOpen ? "1vw" : 0,
+					height: isOpen ? "33vh" : "0%",
+					paddingBottom: isOpen ? "1vh" : 0,
+					paddingTop: isOpen ? "1vh" : 0,
 					overflow: "hidden",
 				}}
 				className="dropdown-container"
@@ -99,34 +110,25 @@ const ListElement = ({
 					<img className="dropdown-image" src="/test.jpg" alt="bho" />
 					<div className="container-central-info">
 						<div className="central-info">
-							<span className="big-title">Horus Rising</span>
+							<span className="big-title">{title}</span>
 							<div className="subtitle-container">
-								<span className="big-author">Author Name</span>
+								<span className="big-author">{author}</span>
 								<SvgSeparator className=" separator" />
-								<span className="big-date">1/1/1970</span>
+								<span className="big-date">{date.toString()}</span>
 							</div>
 							<div className="buttons-container">
 								<button className=" action-button">Modify</button>
 								<button className=" action-button">Open</button>
 							</div>
 						</div>
-						<div className="description-area">
-							Under the benevolent leadership of the Immortal Emperor the
-							Imperium of Man has stretched out across the galaxy. On the eve of
-							victory, the Emperor leaves the front lines, entrusting the great
-							crusade to his favorite son, Horus. Promoted to Warmaster, the
-							idealistic Horus tries to carry out the Emperor'sgrand design, all
-							the while the seeds of heresy and rebellion have been sowed
-							amongst his brothers.
-						</div>
+						<p className="description-tag">Description</p>
+						<div className="description-area">{description}</div>
 					</div>
 				</div>
 				<div className="container-right-info">
 					<p className="notes-tag">Notes</p>
 					<div className="notes-container">
-						<ReactMarkdown>
-							{notes}
-						</ReactMarkdown>
+						<ReactMarkdown>{notes}</ReactMarkdown>
 					</div>
 				</div>
 			</div>

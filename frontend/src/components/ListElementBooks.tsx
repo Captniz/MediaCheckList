@@ -74,6 +74,7 @@ const ListElement = ({
 							<span>{readPages}</span>
 							<span>/</span>
 							<span>{totPages}</span>
+							<span className="type-tag">Pages</span>
 						</div>
 						<CircularProgressBar
 							progress={(readPages / totPages) * 100}
