@@ -4,21 +4,6 @@ import { Request, Response } from "express";
 
 // #============= GET =============#
 
-// ONE film
-const GETFilm = async (req: Request, res: Response) => {
-	try {
-		const film = await FilmModel.findOne({ title: req.params.name });
-
-		if (!film) {
-			res.status(404).json({ message: "Film not found" });
-		} else {
-			res.status(200).json({ message: "Single film", film });
-		}
-	} catch (err) {
-		res.status(500).json({ message: "Error searching film", error: err });
-	}
-};
-
 // ALL films
 const GETAllFilm = async (req: Request, res: Response) => {
 	try {

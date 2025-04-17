@@ -16,6 +16,10 @@ const filmSchema = new Schema({
         type: Number,
         required: true
     },
+    watchedDuration : {
+        type: Number,
+        required: true
+    },
     genre : {
         type: String,
         required: true
