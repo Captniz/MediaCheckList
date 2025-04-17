@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // # =========== PAGES & COMPONENTS =========== #
 import Home from "./pages/Home";
-import MediaPage from "./pages/MediaPage";
+import Books from "./pages/Books";
 
 function App() {
 	return (
@@ -11,12 +11,12 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/books" element={<MediaPage sectionName="Books" />} />
-					<Route path="/manga" element={<MediaPage sectionName="Manga" />} />
-					<Route path="/movies" element={<MediaPage sectionName="Movies" />} />
-					<Route path="/series" element={<MediaPage sectionName="Series" />} />
-					<Route path="/anime" element={<MediaPage sectionName="Anime" />} />
-					<Route path="/games" element={<MediaPage sectionName="Games" />} />
+					<Route path="/books" element={<Books />} />
+					<Route path="/manga" element={<Manga />} />
+					<Route path="/movies" element={<Series />} />
+					<Route path="/series" element={<Anime />} />
+					<Route path="/anime" element={<Films />} />
+					<Route path="/games" element={<Games />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
