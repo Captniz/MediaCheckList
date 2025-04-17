@@ -1,5 +1,9 @@
 import Navbar from "../components/Navbar";
-import ListElementReading from "../components/ListElementReading";
+import ListElementBooks from "../components/ListElementBooks";
+import ListElementManga from "../components/ListElementManga";
+import ListElementSeries from "../components/ListElementSeries";
+import ListElementFilm from "../components/ListElementFilm";
+import ListElementGames from "../components/ListElementGames";
 import HomeMediaSect from "../components/HomeMediaSection";
 import { useEffect, useState } from "react";
 import { Book, Anime, Manga, Film, Game, Series } from "../../../types/item";
@@ -53,7 +57,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setAnimeList(data);
+				setAnimeList(data.animes);
 			} else {
 				console.error("Error fetching anime:", data);
 			}
@@ -67,7 +71,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setSeriesList(data);
+				setSeriesList(data.series);
 			} else {
 				console.error("Error fetching series:", data);
 			}
@@ -81,7 +85,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setFilmList(data);
+				setFilmList(data.films);
 			} else {
 				console.error("Error fetching films:", data);
 			}
@@ -95,7 +99,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setGameList(data);
+				setGameList(data.games);
 			} else {
 				console.error("Error fetching games:", data);
 			}
@@ -112,9 +116,9 @@ const Home = () => {
 	return (
 		<div className="home">
 			<Navbar title="Home" path="/" />
-			<HomeMediaSect sectionName="books" itemsFound={bookList.length}>
+			<HomeMediaSect sectionName="books" itemsFound={bookList.length || 0}>
 				{bookList.map((book) => (
-					<ListElementReading
+					<ListElementBooks
 						title={book.title}
 						author={book.author}
 						totPages={book.pages}
@@ -130,21 +134,98 @@ const Home = () => {
 					/>
 				))}
 			</HomeMediaSect>
-			<HomeMediaSect sectionName="manga" itemsFound={100}>
-				pass
+			<HomeMediaSect sectionName="manga" itemsFound={mangaList.length || 0}>
+				{mangaList.map((manga) => (
+					<ListElementManga
+						title={manga.title}
+						author={manga.author}
+						totChapters={manga.chapters}
+						key={manga._id}
+						readChapters={manga.readChapters}
+						status={manga.status}
+						genre={manga.genre}
+						notes={manga.notes}
+						saga={manga.saga}
+						date={manga.releaseDate}
+						description={manga.description}
+						ctr={mangaList.indexOf(manga) + 1}
+					/>
+				))}
 			</HomeMediaSect>
-			<HomeMediaSect sectionName="series" itemsFound={100}>
-				pass
+			<HomeMediaSect sectionName="series" itemsFound={seriesList.length || 0}>
+			{seriesList.map((series) => (
+					<ListElementSeries
+						title={series.title}
+						author={series.author}
+						totEpisodes={series.episodes}
+						key={series._id}
+						watchedEpisodes={series.watchedEpisodes}
+						status={series.status}
+						genre={series.genre}
+						notes={series.notes}
+						saga={series.saga}
+						date={series.releaseDate}
+						description={series.description}
+						ctr={seriesList.indexOf(series) + 1}
+					/>
+				))}
 			</HomeMediaSect>
-			<HomeMediaSect sectionName="anime" itemsFound={100}>
-				pass
+			<HomeMediaSect sectionName="anime" itemsFound={animeList.length|| 0}>
+			{animeList.map((anime) => (
+					<ListElementSeries
+						title={anime.title}
+						author={anime.author}
+						totEpisodes={anime.episodes}
+						key={anime._id}
+						watchedEpisodes={anime.watchedEpisodes}
+						status={anime.status}
+						genre={anime.genre}
+						notes={anime.notes}
+						saga={anime.saga}
+						date={anime.releaseDate}
+						description={anime.description}
+						ctr={animeList.indexOf(anime) + 1}
+					/>
+				))}
 			</HomeMediaSect>
-			<HomeMediaSect sectionName="games" itemsFound={100}>
-				pass
+			<HomeMediaSect sectionName="games" itemsFound={gameList.length|| 0}>
+			{gameList.map((game) => (
+					<ListElementGames
+						title={game.title}
+						author={game.author}
+						achievements={game.achievements}
+						achievementNumber={game.achievementNumber}
+						key={game._id}
+						feltCompletion={game.feltCompletion}
+						status={game.status}
+						genre={game.genre}
+						notes={game.notes}
+						saga={game.saga}
+						date={game.releaseDate}
+						description={game.description}
+						ctr={gameList.indexOf(game) + 1}
+					/>
+				))}
 			</HomeMediaSect>
-			<HomeMediaSect sectionName="movies" itemsFound={100}>
-				pass
+			<HomeMediaSect sectionName="movies" itemsFound={filmList.length|| 0}>
+			{filmList.map((film) => (
+					<ListElementFilm
+						title={film.title}
+						author={film.author}
+						duration={film.duration}
+						key={film._id}
+						watchedDuration={film.watchedDuration}
+						status={film.status}
+						genre={film.genre}
+						notes={film.notes}
+						saga={film.saga}
+						date={film.releaseDate}
+						description={film.description}
+						ctr={filmList.indexOf(film) + 1}
+					/>
+				))}
 			</HomeMediaSect>
+			<br/> {/* Mi son cagato il cazzo dei padding */}
 		</div>
 	);
 };
