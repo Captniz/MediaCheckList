@@ -1,11 +1,11 @@
-import ListElement from "../components/ListElementReading";
 import Navbar from "../components/Navbar";
 import "../styles/MediaPage.css";
 
-const Books = ({ sectionName }: { sectionName: string }) => {
+const Books = () => {
 	const tmpItemsFound: number = 100;
 	const filters: string = "1 - 100 Pages";
-	const path = "/" + sectionName.toLowerCase();
+	const sectionName: string = "Books";
+	const path: string = "/" + sectionName.toLowerCase();
 
 	return (
 		<div className="home">
@@ -27,9 +27,7 @@ const Books = ({ sectionName }: { sectionName: string }) => {
 					<button>Sort</button>
 				</div>
 			</div>
-			<div className="media-page">
-				{/* Elements */}
-			</div>
+			<div className="media-page">{/* Elements */}</div>
 		</div>
 	);
 };
