@@ -113,7 +113,7 @@
 	color: var(--hard-gray);
 	margin-right: 0.5vw;
 	min-width: 5vw;
-	text-align: center;
+	text-align: justify;
 	max-width: 60%; /* Ensure title doesn't overflow beyond container */
 	min-width: 60%;
 }
@@ -411,4 +411,11 @@
 	color: var(--gray);
 	font-style: italic;
 	padding-left: 0.5em;
+}
+
+.type-tag{
+	font-size: 0.5em;
+	font-style: italic;
+	color: var(--gray);
+	margin-left: 0.4em;
 }
