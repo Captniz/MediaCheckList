@@ -1,35 +1,35 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import ListElementBooks from "../components/ListElementBooks";
-import { Book } from "../../../types/item";
+import ListElementSeries from "../components/ListElementSeries";
+import { Series } from "../../../types/item";
 import "../styles/MediaPage.css";
 
-const Books = () => {
-	const [bookList, setBookList] = useState<Book[]>([]);
+const Series_ = () => {
+	const [seriesList, setSeriesList] = useState<Series[]>([]);
 
 	useEffect(() => {
 		const requestOptions = {
 			method: "GET",
 		};
 
-		const fetchBooks = async () => {
-			const response: Response = await fetch("/api/books/", requestOptions);
+		const fetchSeries = async () => {
+			const response: Response = await fetch("/api/series/", requestOptions);
 			const data = await response.json();
 
 			if (response.ok) {
-				setBookList(data.books);
+				setSeriesList(data.series);
 			} else {
-				console.error("Error fetching books:", data);
+				console.error("Error fetching series:", data);
 			}
 		};
 
-		fetchBooks();
+		fetchSeries();
 	}, []);
 
 	const filters: string = "";
 	const sort: string = "";
-	const sectionName: string = "Books";
+	const sectionName: string = "Series";
 	const path: string = "/" + sectionName.toLowerCase();
 
 	return (
@@ -40,7 +40,7 @@ const Books = () => {
 					<h1 className="page-title">{sectionName}</h1>
 					<h3 className="page-found">
 						{" "}
-						Found <i>{bookList.length || 0}</i>
+						Found <i>{seriesList.length || 0}</i>
 						{filters === "" ? "" : <b>{filters}</b>} {sectionName}
 					</h3>
 				</div>
@@ -54,20 +54,20 @@ const Books = () => {
 				</div>
 			</div>
 			<div className="media-page">
-				{bookList.map((book) => (
-					<ListElementBooks
-						title={book.title}
-						author={book.author}
-						totPages={book.pages}
-						key={book._id}
-						readPages={book.readPages}
-						status={book.status}
-						genre={book.genre}
-						notes={book.notes}
-						saga={book.saga}
-						date={book.releaseDate}
-						description={book.description}
-						ctr={bookList.indexOf(book) + 1}
+				{seriesList.map((series) => (
+					<ListElementSeries
+						title={series.title}
+						author={series.author}
+						totEpisodes={series.episodes}
+						key={series._id}
+						watchedEpisodes={series.watchedEpisodes}
+						status={series.status}
+						genre={series.genre}
+						notes={series.notes}
+						saga={series.saga}
+						date={series.releaseDate}
+						description={series.description}
+						ctr={seriesList.indexOf(series) + 1}
 					/>
 				))}
 			</div>
@@ -75,4 +75,4 @@ const Books = () => {
 	);
 };
 
-export default Books;
+export default Series_;

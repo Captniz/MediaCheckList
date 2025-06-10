@@ -4,21 +4,6 @@ import { Request, Response } from "express";
 
 // #============= GET =============#
 
-// ONE series
-const GETSeries = async (req: Request, res: Response) => {
-	try {
-		const series = await SeriesModel.findOne({ title: req.params.name });
-
-		if (!series) {
-			res.status(404).json({ message: "Series not found" });
-		} else {
-			res.status(200).json({ message: "Single series", series });
-		}
-	} catch (err) {
-		res.status(500).json({ message: "Error searching series", error: err });
-	}
-};
-
 // ALL seriess
 const GETAllSeries = async (req: Request, res: Response) => {
 	try {

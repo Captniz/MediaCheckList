@@ -36,12 +36,12 @@ const ListElement = ({
 	function formatTime(seconds: number): string {
 		const hrs = Math.floor(seconds / 3600);
 		const mins = Math.floor((seconds % 3600) / 60);
-	  
-		const paddedHrs = hrs.toString().padStart(2, '0');
-		const paddedMins = mins.toString().padStart(2, '0');
-	  
+
+		const paddedHrs = hrs.toString().padStart(2, "0");
+		const paddedMins = mins.toString().padStart(2, "0");
+
 		return `${paddedHrs}:${paddedMins}`;
-	  }
+	}
 
 	const statusColors: Record<string, string> = {
 		Active: "active",
@@ -87,7 +87,7 @@ const ListElement = ({
 							<span className="type-tag">Dur.</span>
 						</div>
 						<CircularProgressBar
-							progress={(duration / watchedDuration) * 100}
+							progress={(watchedDuration * 100) / duration}
 							cssClass="circ-progress"
 						/>
 					</div>

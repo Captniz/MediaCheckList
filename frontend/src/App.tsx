@@ -4,6 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // # =========== PAGES & COMPONENTS =========== #
 import Home from "./pages/Home";
 import Books from "./pages/Books";
+import Manga from "./pages/Manga";
+import Series from "./pages/Series";
+import Anime from "./pages/Anime";
+import Films from "./pages/Films";
+import Games from "./pages/Games";
 
 function App() {
 	return (
@@ -13,10 +18,10 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/books" element={<Books />} />
 					<Route path="/manga" element={<Manga />} />
-					<Route path="/movies" element={<Series />} />
-					<Route path="/series" element={<Anime />} />
-					<Route path="/anime" element={<Films />} />
-					<Route path="/games" element={<Games />} />
+					<Route path="/series" element={<Series />} />
+					<Route path="/movies" element={<Films />} />
+					<Route path="/anime" element={<Anime />} />
+					<Route path="/games" element={<Games />} /> 
 				</Routes>
 			</BrowserRouter>
 		</div>

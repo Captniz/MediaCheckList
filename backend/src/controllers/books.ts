@@ -7,8 +7,8 @@ import { Request, Response } from "express";
 // ALL books
 const GETAllBook = async (req: Request, res: Response) => {
 	try {
-		const book = await BookModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All books", book });
+		const books = await BookModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All books", books });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching books", error: err });
 	}

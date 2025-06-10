@@ -65,6 +65,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Aggiungi descrizione progetto
 - Aggiungi readme
 - Documenta backend-frontend
+- Rename all "FILM" to "MOVIE"
 
 ## Backend
 
