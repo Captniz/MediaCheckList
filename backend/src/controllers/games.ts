@@ -23,6 +23,18 @@ const GETFilteredGame = async (req: Request, res: Response) => {
 		const filters: Record<string, any> = {};
 
 		for (const key in rawFilters) {
+			if (key.includes("__")) {
+				const [field, operator] = key.split("__");
+
+				if (operator === "in") {
+					filters[field] = { $in: String(rawFilters[key]).split(",") };
+					continue;
+				} else {
+					filters[field] = { [`$${operator}`] : Number(rawFilters[key]) };
+					continue;
+				}
+			}
+
 			const value = rawFilters[key];
 			filters[key] = isNaN(Number(value)) ? value : Number(value);
 		}
