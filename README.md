@@ -66,6 +66,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Aggiungi readme
 - Documenta backend-frontend
 - Rename all "FILM" to "MOVIE"
+- Imposta delle variabili di default per lo status (Active, On hold, ...) e per i generi (Adventure, Action, ...)
 
 ## Backend
 
@@ -93,3 +94,5 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - tasti per sortare/filtrare
 - Finisci le varie tipologie di visualizzazione dei listElement
 - Implementa Le immagini
+- Aggiungi fuzzy-find per le ricerche
+- Tieni a memoria e display dei filtri attivi
