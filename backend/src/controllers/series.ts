@@ -7,8 +7,8 @@ import { Request, Response } from "express";
 // ALL seriess
 const GETAllSeries = async (req: Request, res: Response) => {
 	try {
-		const series = await SeriesModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All seriess", series });
+		const elements = await SeriesModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All seriess", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching seriess", error: err });
 	}
@@ -44,11 +44,11 @@ const GETFilterSeries = async (req: Request, res: Response) => {
 			[sortBy as string]: order,
 		};
 
-		const series = await SeriesModel.find(filters).sort(sortOptions);
+		const elements = await SeriesModel.find(filters).sort(sortOptions);
 
 		res
 			.status(200)
-			.json({ message: "All filtered series", by: { ...req.query }, series });
+			.json({ message: "All filtered series", by: { ...req.query }, elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching series", error: err });
 	}
@@ -61,8 +61,8 @@ const GETFilterSeries = async (req: Request, res: Response) => {
 // ONE series
 const POSTSeries = async (req: Request, res: Response) => {
 	try {
-		const series = await SeriesModel.create({ ...req.body });
-		res.status(201).json({ message: "Series added successfully", series });
+		const elements = await SeriesModel.create({ ...req.body });
+		res.status(201).json({ message: "Series added successfully", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error adding series", error: err });
 	}
@@ -80,13 +80,13 @@ const DELETESeries = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const series = await SeriesModel.findByIdAndDelete(req.params.id);
+		const elements = await SeriesModel.findByIdAndDelete(req.params.id);
 
-		if (!series) {
+		if (!elements) {
 			res.status(404).json({ message: "Series not found" });
 			return;
 		} else {
-			res.status(200).json({ message: "Series deleted successfully", series });
+			res.status(200).json({ message: "Series deleted successfully", elements });
 		}
 	} catch (err) {
 		res.status(500).json({ message: "Error searching series", error: err });
@@ -104,20 +104,20 @@ const PATCHSeries = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const series = await SeriesModel.findOneAndUpdate(
+		const elements = await SeriesModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{ ...req.body }
 		);
 
-		if (!series) {
+		if (!elements) {
 			res.status(404).json({ message: "Series not found" });
 			return;
 		} else {
-			const newseries = await SeriesModel.findOne({ _id: req.params.id });
+			const newelements = await SeriesModel.findOne({ _id: req.params.id });
 			res.status(200).json({
 				message: "Series modified successfully",
-				was: series,
-				now: newseries,
+				was: elements,
+				now: newelements,
 			});
 		}
 	} catch (err) {

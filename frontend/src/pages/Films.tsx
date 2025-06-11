@@ -18,7 +18,7 @@ const Books = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setFilmList(data.film);
+				setFilmList(data.elements);
 			} else {
 				console.error("Error fetching films:", data);
 			}

@@ -8,8 +8,8 @@ import { Request, Response } from "express";
 // ALL games
 const GETAllGame = async (req: Request, res: Response) => {
 	try {
-		const game = await GameModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All games", game });
+		const elements = await GameModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All games", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching games", error: err });
 	}
@@ -45,11 +45,11 @@ const GETFilteredGame = async (req: Request, res: Response) => {
 			[sortBy as string]: order,
 		};
 
-		const games = await GameModel.find(filters).sort(sortOptions);
+		const elements = await GameModel.find(filters).sort(sortOptions);
 
 		res
 			.status(200)
-			.json({ message: "All filtered games", by: { ...req.query }, games });
+			.json({ message: "All filtered games", by: { ...req.query }, elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching games", error: err });
 	}
@@ -62,8 +62,8 @@ const GETFilteredGame = async (req: Request, res: Response) => {
 // ONE game
 const POSTGame = async (req: Request, res: Response) => {
 	try {
-		const game = await GameModel.create({ ...req.body });
-		res.status(201).json({ message: "Game added successfully", game });
+		const elements = await GameModel.create({ ...req.body });
+		res.status(201).json({ message: "Game added successfully", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error adding game", error: err });
 	}
@@ -81,13 +81,13 @@ const DELETEGame = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const game = await GameModel.findByIdAndDelete(req.params.id);
+		const elements = await GameModel.findByIdAndDelete(req.params.id);
 
-		if (!game) {
+		if (!elements) {
 			res.status(404).json({ message: "Game not found" });
 			return;
 		} else {
-			res.status(200).json({ message: "Game deleted successfully", game });
+			res.status(200).json({ message: "Game deleted successfully", elements });
 		}
 	} catch (err) {
 		res.status(500).json({ message: "Error searching game", error: err });
@@ -105,20 +105,20 @@ const PATCHGame = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const game = await GameModel.findOneAndUpdate(
+		const elements = await GameModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{ ...req.body }
 		);
 
-		if (!game) {
+		if (!elements) {
 			res.status(404).json({ message: "Game not found" });
 			return;
 		} else {
-			const newgame = await GameModel.findOne({ _id: req.params.id });
+			const newelements = await GameModel.findOne({ _id: req.params.id });
 			res.status(200).json({
 				message: "Game modified successfully",
-				was: game,
-				now: newgame,
+				was: elements,
+				now: newelements,
 			});
 		}
 	} catch (err) {

@@ -18,7 +18,7 @@ const Anime_ = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setAnimeList(data.anime);
+				setAnimeList(data.elements);
 			} else {
 				console.error("Error fetching anime:", data);
 			}

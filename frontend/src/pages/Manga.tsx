@@ -18,7 +18,7 @@ const Mangas = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setMangaList(data.manga);
+				setMangaList(data.elements);
 			} else {
 				console.error("Error fetching manga:", data);
 			}

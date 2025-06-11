@@ -7,8 +7,8 @@ import { Request, Response } from "express";
 // ALL films
 const GETAllFilm = async (req: Request, res: Response) => {
 	try {
-		const film = await FilmModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All films", film });
+		const elements = await FilmModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All films", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching films", error: err });
 	}
@@ -44,11 +44,11 @@ const GETFilterFilm = async (req: Request, res: Response) => {
 			[sortBy as string]: order,
 		};
 
-		const films = await FilmModel.find(filters).sort(sortOptions);
+		const elements = await FilmModel.find(filters).sort(sortOptions);
 
 		res
 			.status(200)
-			.json({ message: "All filtered films", by: { ...req.query }, films });
+			.json({ message: "All filtered films", by: { ...req.query }, elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching films", error: err });
 	}
@@ -61,8 +61,8 @@ const GETFilterFilm = async (req: Request, res: Response) => {
 // ONE film
 const POSTFilm = async (req: Request, res: Response) => {
 	try {
-		const film = await FilmModel.create({ ...req.body });
-		res.status(201).json({ message: "Film added successfully", film });
+		const elements = await FilmModel.create({ ...req.body });
+		res.status(201).json({ message: "Film added successfully", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error adding film", error: err });
 	}
@@ -80,13 +80,13 @@ const DELETEFilm = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const film = await FilmModel.findByIdAndDelete(req.params.id);
+		const elements = await FilmModel.findByIdAndDelete(req.params.id);
 
-		if (!film) {
+		if (!elements) {
 			res.status(404).json({ message: "Film not found" });
 			return;
 		} else {
-			res.status(200).json({ message: "Film deleted successfully", film });
+			res.status(200).json({ message: "Film deleted successfully", elements });
 		}
 	} catch (err) {
 		res.status(500).json({ message: "Error searching film", error: err });
@@ -104,20 +104,20 @@ const PATCHFilm = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const film = await FilmModel.findOneAndUpdate(
+		const elements = await FilmModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{ ...req.body }
 		);
 
-		if (!film) {
+		if (!elements) {
 			res.status(404).json({ message: "Film not found" });
 			return;
 		} else {
-			const newfilm = await FilmModel.findOne({ _id: req.params.id });
+			const newelements = await FilmModel.findOne({ _id: req.params.id });
 			res.status(200).json({
 				message: "Film modified successfully",
-				was: film,
-				now: newfilm,
+				was: elements,
+				now: newelements,
 			});
 		}
 	} catch (err) {

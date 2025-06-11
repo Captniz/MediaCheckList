@@ -14,11 +14,11 @@ const Books = () => {
 		};
 
 		const fetchBooks = async () => {
-			const response: Response = await fetch("/api/books/", requestOptions);
+			const response: Response = await fetch("/api/books/search?", requestOptions);
 			const data = await response.json();
 
 			if (response.ok) {
-				setBookList(data.books);
+				setBookList(data.elements);
 			} else {
 				console.error("Error fetching books:", data);
 			}
@@ -49,10 +49,11 @@ const Books = () => {
 						Press <span>/</span> to search
 					</p>
 					<p className="sep"></p>
-					<button>Filter</button>
+					<button >Filter</button>
 					<button>Sort</button>
 				</div>
 			</div>
+
 			<div className="media-page">
 				{bookList.map((book) => (
 					<ListElementBooks

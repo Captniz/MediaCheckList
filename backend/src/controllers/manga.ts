@@ -7,8 +7,8 @@ import { Request, Response } from "express";
 // ALL manga
 const GETAllManga = async (req: Request, res: Response) => {
 	try {
-		const manga = await MangaModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All manga", manga });
+		const elements = await MangaModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All manga", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching manga", error: err });
 	}
@@ -44,11 +44,11 @@ const GETFilterManga = async (req: Request, res: Response) => {
 			[sortBy as string]: order,
 		};
 
-		const manga = await MangaModel.find(filters).sort(sortOptions);
+		const elements = await MangaModel.find(filters).sort(sortOptions);
 
 		res
 			.status(200)
-			.json({ message: "All filtered manga", by: { ...req.query }, manga });
+			.json({ message: "All filtered manga", by: { ...req.query }, elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching manga", error: err });
 	}
@@ -61,8 +61,8 @@ const GETFilterManga = async (req: Request, res: Response) => {
 // ONE manga
 const POSTManga = async (req: Request, res: Response) => {
 	try {
-		const manga = await MangaModel.create({ ...req.body });
-		res.status(201).json({ message: "Manga added successfully", manga });
+		const elements = await MangaModel.create({ ...req.body });
+		res.status(201).json({ message: "Manga added successfully", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error adding manga", error: err });
 	}
@@ -80,13 +80,13 @@ const DELETEManga = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const manga = await MangaModel.findByIdAndDelete(req.params.id);
+		const elements = await MangaModel.findByIdAndDelete(req.params.id);
 
-		if (!manga) {
+		if (!elements) {
 			res.status(404).json({ message: "Manga not found" });
 			return;
 		} else {
-			res.status(200).json({ message: "Manga deleted successfully", manga });
+			res.status(200).json({ message: "Manga deleted successfully", elements });
 		}
 	} catch (err) {
 		res.status(500).json({ message: "Error searching manga", error: err });
@@ -104,20 +104,20 @@ const PATCHManga = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const manga = await MangaModel.findOneAndUpdate(
+		const elements = await MangaModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{ ...req.body }
 		);
 
-		if (!manga) {
+		if (!elements) {
 			res.status(404).json({ message: "Manga not found" });
 			return;
 		} else {
-			const newmanga = await MangaModel.findOne({ _id: req.params.id });
+			const newelements = await MangaModel.findOne({ _id: req.params.id });
 			res.status(200).json({
 				message: "Manga modified successfully",
-				was: manga,
-				now: newmanga,
+				was: elements,
+				now: newelements,
 			});
 		}
 	} catch (err) {

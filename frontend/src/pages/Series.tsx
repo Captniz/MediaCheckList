@@ -6,8 +6,16 @@ import { Series } from "../../../types/item";
 import "../styles/MediaPage.css";
 
 const Series_ = () => {
-	const [seriesList, setSeriesList] = useState<Series[]>([]);
+	/**
+	 * Series Page Component
+	 * Displays a list of series with their details
+	 */
 
+
+	// State to hold the list of series
+	const [seriesList, setSeriesList] = useState<Series[]>([]);
+	
+	// Fetch series data from the API when the component mounts
 	useEffect(() => {
 		const requestOptions = {
 			method: "GET",
@@ -18,7 +26,7 @@ const Series_ = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setSeriesList(data.series);
+				setSeriesList(data.elements);
 			} else {
 				console.error("Error fetching series:", data);
 			}
@@ -27,6 +35,7 @@ const Series_ = () => {
 		fetchSeries();
 	}, []);
 
+	// Filters, sort options, and section name
 	const filters: string = "";
 	const sort: string = "";
 	const sectionName: string = "Series";

@@ -7,8 +7,8 @@ import { Request, Response } from "express";
 // ALL books
 const GETAllBook = async (req: Request, res: Response) => {
 	try {
-		const books = await BookModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All books", books });
+		const elements = await BookModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All books", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching books", error: err });
 	}
@@ -44,11 +44,11 @@ const GETFilterBook = async (req: Request, res: Response) => {
 			[sortBy as string]: order,
 		};
 
-		const books = await BookModel.find(filters).sort(sortOptions);
+		const elements = await BookModel.find(filters).sort(sortOptions);
 
 		res
 			.status(200)
-			.json({ message: "All filtered books", by: { ...req.query }, books });
+			.json({ message: "All filtered books", by: { ...req.query }, elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching books", error: err });
 	}
@@ -61,8 +61,8 @@ const GETFilterBook = async (req: Request, res: Response) => {
 // ONE book
 const POSTBook = async (req: Request, res: Response) => {
 	try {
-		const book = await BookModel.create({ ...req.body });
-		res.status(201).json({ message: "Book added successfully", book });
+		const elements = await BookModel.create({ ...req.body });
+		res.status(201).json({ message: "Book added successfully", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error adding book", error: err });
 	}
@@ -80,13 +80,13 @@ const DELETEBook = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const book = await BookModel.findByIdAndDelete(req.params.id);
+		const elements = await BookModel.findByIdAndDelete(req.params.id);
 
-		if (!book) {
+		if (!elements) {
 			res.status(404).json({ message: "Book not found" });
 			return;
 		} else {
-			res.status(200).json({ message: "Book deleted successfully", book });
+			res.status(200).json({ message: "Book deleted successfully", elements });
 		}
 	} catch (err) {
 		res.status(500).json({ message: "Error searching book", error: err });
@@ -104,20 +104,20 @@ const PATCHBook = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const book = await BookModel.findOneAndUpdate(
+		const elements = await BookModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{ ...req.body }
 		);
 
-		if (!book) {
+		if (!elements) {
 			res.status(404).json({ message: "Book not found" });
 			return;
 		} else {
-			const newbook = await BookModel.findOne({ _id: req.params.id });
+			const newelements = await BookModel.findOne({ _id: req.params.id });
 			res.status(200).json({
 				message: "Book modified successfully",
-				was: book,
-				now: newbook,
+				was: elements,
+				now: newelements,
 			});
 		}
 	} catch (err) {

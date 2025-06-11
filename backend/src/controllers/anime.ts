@@ -7,8 +7,8 @@ import { Request, Response } from "express";
 // ALL animes
 const GETAllAnime = async (req: Request, res: Response) => {
 	try {
-		const anime = await AnimeModel.find().sort({ title: 1 });
-		res.status(200).json({ message: "All animes", anime });
+		const elements = await AnimeModel.find().sort({ title: 1 });
+		res.status(200).json({ message: "All animes", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching animes", error: err });
 	}
@@ -44,11 +44,11 @@ const GETFilterAnime = async (req: Request, res: Response) => {
 			[sortBy as string]: order,
 		};
 
-		const animes = await AnimeModel.find(filters).sort(sortOptions);
+		const elements = await AnimeModel.find(filters).sort(sortOptions);
 
 		res
 			.status(200)
-			.json({ message: "All filtered animes", by: { ...req.query }, animes });
+			.json({ message: "All filtered animes", by: { ...req.query }, elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error searching animes", error: err });
 	}
@@ -61,8 +61,8 @@ const GETFilterAnime = async (req: Request, res: Response) => {
 // ONE anime
 const POSTAnime = async (req: Request, res: Response) => {
 	try {
-		const anime = await AnimeModel.create({ ...req.body });
-		res.status(201).json({ message: "Anime added successfully", anime });
+		const elements = await AnimeModel.create({ ...req.body });
+		res.status(201).json({ message: "Anime added successfully", elements });
 	} catch (err) {
 		res.status(500).json({ message: "Error adding anime", error: err });
 	}
@@ -80,13 +80,13 @@ const DELETEAnime = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const anime = await AnimeModel.findByIdAndDelete(req.params.id);
+		const elements = await AnimeModel.findByIdAndDelete(req.params.id);
 
-		if (!anime) {
+		if (!elements) {
 			res.status(404).json({ message: "Anime not found" });
 			return;
 		} else {
-			res.status(200).json({ message: "Anime deleted successfully", anime });
+			res.status(200).json({ message: "Anime deleted successfully", elements });
 		}
 	} catch (err) {
 		res.status(500).json({ message: "Error searching anime", error: err });
@@ -104,20 +104,20 @@ const PATCHAnime = async (req: Request, res: Response) => {
 			return;
 		}
 
-		const anime = await AnimeModel.findOneAndUpdate(
+		const elements = await AnimeModel.findOneAndUpdate(
 			{ _id: req.params.id },
 			{ ...req.body }
 		);
 
-		if (!anime) {
+		if (!elements) {
 			res.status(404).json({ message: "Anime not found" });
 			return;
 		} else {
-			const newanime = await AnimeModel.findOne({ _id: req.params.id });
+			const newelements = await AnimeModel.findOne({ _id: req.params.id });
 			res.status(200).json({
 				message: "Anime modified successfully",
-				was: anime,
-				now: newanime,
+				was: elements,
+				now: newelements,
 			});
 		}
 	} catch (err) {

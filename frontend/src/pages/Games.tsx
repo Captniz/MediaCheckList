@@ -18,7 +18,7 @@ const Games_ = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setGameList(data.game);
+				setGameList(data.elements);
 			} else {
 				console.error("Error fetching games:", data);
 			}
