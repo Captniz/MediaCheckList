@@ -34,8 +34,14 @@ const GETFilterFilm = async (req: Request, res: Response) => {
 				}
 			}
 
+			function toRegex(str: any): RegExp {
+				str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+				return new RegExp(str, "i");
+			}
+
+			
 			const value = rawFilters[key];
-			filters[key] = isNaN(Number(value)) ? value : Number(value);
+			filters[key] = isNaN(Number(value)) ? toRegex(value) : Number(value);
 		}
 
 		const order = sortOrder === "asc" ? 1 : -1;
