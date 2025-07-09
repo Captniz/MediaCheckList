@@ -1,0 +1,32 @@
+.popup-container {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 50;
+}
+
+.popup-window {
+	background-color: var(--soft-white);
+	border-radius: 0.2em;
+	position: relative;
+	width: 40%;
+    height: 60%;
+    z-index: 500;
+	padding-left: 3vw;
+}
+
+.submit-button {
+    background-color: var(--hard-accent);
+    color: white;
+    font-weight: 600;
+    font-family: "Poppins";
+    border-radius: 20rem;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border: none;
+    cursor: pointer;
+	margin-top: 3vw;
+}
