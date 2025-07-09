@@ -11,8 +11,8 @@ const ListPage = createGeneralPage<Film>({
 		author: "",
 		status: defaultStatuses,
 		genre: defaultGenres,
-		pages: 0,
-		readPages: 0,
+		duration: 0,
+		watchedDuration: 0,
 		saga: "",
 	},
 });

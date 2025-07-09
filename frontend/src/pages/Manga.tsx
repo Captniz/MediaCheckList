@@ -11,8 +11,8 @@ const ListPage = createGeneralPage<Manga>({
 		author: "",
 		status: defaultStatuses,
 		genre: defaultGenres,
-		pages: 0,
-		readPages: 0,
+		chapters: 0,
+		readChapters: 0,
 		saga: "",
 	},
 });

@@ -11,8 +11,9 @@ const ListPage = createGeneralPage<Game>({
 		author: "",
 		status: defaultStatuses,
 		genre: defaultGenres,
-		pages: 0,
-		readPages: 0,
+		achievementNumber: 0,
+		achievements: 0,
+		feltCompletion: 0,
 		saga: "",
 	},
 });

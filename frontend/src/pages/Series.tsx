@@ -11,8 +11,8 @@ const ListPage = createGeneralPage<Series>({
 		author: "",
 		status: defaultStatuses,
 		genre: defaultGenres,
-		pages: 0,
-		readPages: 0,
+		episodes: 0,
+		watchedEpisodes: 0,
 		saga: "",
 	},
 });
