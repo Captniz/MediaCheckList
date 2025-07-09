@@ -29,7 +29,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setBookList(data.books);
+				setBookList(data.elements);
 			} else {
 				console.error("Error fetching books:", data);
 			}
@@ -43,7 +43,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setMangaList(data.manga);
+				setMangaList(data.elements);
 			} else {
 				console.error("Error fetching manga:", data);
 			}
@@ -57,7 +57,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setAnimeList(data.animes);
+				setAnimeList(data.elements);
 			} else {
 				console.error("Error fetching anime:", data);
 			}
@@ -71,7 +71,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setSeriesList(data.series);
+				setSeriesList(data.elements);
 			} else {
 				console.error("Error fetching series:", data);
 			}
@@ -85,7 +85,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setFilmList(data.films);
+				setFilmList(data.elements);
 			} else {
 				console.error("Error fetching films:", data);
 			}
@@ -99,7 +99,7 @@ const Home = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				setGameList(data.games);
+				setGameList(data.elements);
 			} else {
 				console.error("Error fetching games:", data);
 			}
@@ -119,17 +119,7 @@ const Home = () => {
 			<HomeMediaSect sectionName="books" itemsFound={bookList.length || 0}>
 				{bookList.map((book) => (
 					<ListElementBooks
-						title={book.title}
-						author={book.author}
-						totPages={book.pages}
-						key={book._id}
-						readPages={book.readPages}
-						status={book.status}
-						genre={book.genre}
-						notes={book.notes}
-						saga={book.saga}
-						date={book.releaseDate}
-						description={book.description}
+						{...book}
 						ctr={bookList.indexOf(book) + 1}
 					/>
 				))}
@@ -137,17 +127,7 @@ const Home = () => {
 			<HomeMediaSect sectionName="manga" itemsFound={mangaList.length || 0}>
 				{mangaList.map((manga) => (
 					<ListElementManga
-						title={manga.title}
-						author={manga.author}
-						totChapters={manga.chapters}
-						key={manga._id}
-						readChapters={manga.readChapters}
-						status={manga.status}
-						genre={manga.genre}
-						notes={manga.notes}
-						saga={manga.saga}
-						date={manga.releaseDate}
-						description={manga.description}
+						{...manga}
 						ctr={mangaList.indexOf(manga) + 1}
 					/>
 				))}
@@ -155,17 +135,7 @@ const Home = () => {
 			<HomeMediaSect sectionName="series" itemsFound={seriesList.length || 0}>
 			{seriesList.map((series) => (
 					<ListElementSeries
-						title={series.title}
-						author={series.author}
-						totEpisodes={series.episodes}
-						key={series._id}
-						watchedEpisodes={series.watchedEpisodes}
-						status={series.status}
-						genre={series.genre}
-						notes={series.notes}
-						saga={series.saga}
-						date={series.releaseDate}
-						description={series.description}
+						{...series}
 						ctr={seriesList.indexOf(series) + 1}
 					/>
 				))}
@@ -173,17 +143,7 @@ const Home = () => {
 			<HomeMediaSect sectionName="anime" itemsFound={animeList.length|| 0}>
 			{animeList.map((anime) => (
 					<ListElementSeries
-						title={anime.title}
-						author={anime.author}
-						totEpisodes={anime.episodes}
-						key={anime._id}
-						watchedEpisodes={anime.watchedEpisodes}
-						status={anime.status}
-						genre={anime.genre}
-						notes={anime.notes}
-						saga={anime.saga}
-						date={anime.releaseDate}
-						description={anime.description}
+						{...anime}
 						ctr={animeList.indexOf(anime) + 1}
 					/>
 				))}
@@ -191,18 +151,7 @@ const Home = () => {
 			<HomeMediaSect sectionName="games" itemsFound={gameList.length|| 0}>
 			{gameList.map((game) => (
 					<ListElementGames
-						title={game.title}
-						author={game.author}
-						achievements={game.achievements}
-						achievementNumber={game.achievementNumber}
-						key={game._id}
-						feltCompletion={game.feltCompletion}
-						status={game.status}
-						genre={game.genre}
-						notes={game.notes}
-						saga={game.saga}
-						date={game.releaseDate}
-						description={game.description}
+						{...game}
 						ctr={gameList.indexOf(game) + 1}
 					/>
 				))}
@@ -210,17 +159,7 @@ const Home = () => {
 			<HomeMediaSect sectionName="movies" itemsFound={filmList.length|| 0}>
 			{filmList.map((film) => (
 					<ListElementFilm
-						title={film.title}
-						author={film.author}
-						duration={film.duration}
-						key={film._id}
-						watchedDuration={film.watchedDuration}
-						status={film.status}
-						genre={film.genre}
-						notes={film.notes}
-						saga={film.saga}
-						date={film.releaseDate}
-						description={film.description}
+						{...film}
 						ctr={filmList.indexOf(film) + 1}
 					/>
 				))}
