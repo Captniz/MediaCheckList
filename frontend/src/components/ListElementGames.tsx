@@ -6,33 +6,27 @@ import { ReactComponent as SvgSeparator } from "../assets/separator.svg";
 import CircularProgressBar from "./CircularProgressBar";
 import ReactMarkdown from "react-markdown";
 
-const ListElement = ({
-	achievementNumber,
-	achievements,
-	feltCompletion,
-	status,
-	genre,
-	saga,
-	notes,
-	title,
-	author,
-	ctr,
-	description,
-	date,
-}: {
-	achievementNumber: number;
-	achievements: number;
-	feltCompletion: number;
-	status: string;
-	genre: string;
-	saga: string;
-	notes: string;
-	title: string;
-	author: string;
-	ctr: number;
-	description: string;
-	date: Date;
-}) => {
+import { FC } from "react";
+import { Game } from "../../../types/item";
+
+type ListElementProps = Game & { ctr: number };
+
+const ListElement: FC<ListElementProps> = (props) => {
+	const {
+		title,
+		author,
+		genre,
+		status,
+		saga,
+		releaseDate,
+		description,
+		notes,
+		achievementNumber,
+		achievements,
+		feltCompletion,
+		ctr,
+	} = props;
+
 	const [isOpen, setIsOpen] = useState(false);
 
 	const statusColors: Record<string, string> = {
@@ -131,7 +125,7 @@ const ListElement = ({
 							<div className="subtitle-container">
 								<span className="big-author">{author}</span>
 								<SvgSeparator className=" separator" />
-								<span className="big-date">{date.toString()}</span>
+								<span className="big-date">{releaseDate.toString()}</span>
 							</div>
 							<div className="buttons-container">
 								<button className=" action-button">Modify</button>

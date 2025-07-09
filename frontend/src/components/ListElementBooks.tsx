@@ -6,31 +6,26 @@ import { ReactComponent as SvgSeparator } from "../assets/separator.svg";
 import CircularProgressBar from "./CircularProgressBar";
 import ReactMarkdown from "react-markdown";
 
-const ListElement = ({
-	totPages,
-	readPages,
-	status,
-	genre,
-	saga,
-	notes,
-	title,
-	author,
-	ctr,
-	description,
-	date,
-}: {
-	totPages: number;
-	readPages: number;
-	status: string;
-	genre: string;
-	saga: string;
-	notes: string;
-	title: string;
-	author: string;
-	ctr: number;
-	description: string;
-	date: Date;
-}) => {
+import { FC } from "react";
+import { Book } from "../../../types/item";
+
+type ListElementProps = Book & { ctr: number };
+
+const ListElement: FC<ListElementProps> = (props) => {
+	const {
+		title,
+		author,
+		genre,
+		status,
+		saga,
+		releaseDate,
+		description,
+		notes,
+		pages,
+		readPages,
+		ctr
+	} = props;
+
 	const [isOpen, setIsOpen] = useState(false);
 
 	const statusColors: Record<string, string> = {
@@ -73,11 +68,11 @@ const ListElement = ({
 						<div className="progress-num">
 							<span>{readPages}</span>
 							<span>/</span>
-							<span>{totPages}</span>
+							<span>{pages}</span>
 							<span className="type-tag">Pages</span>
 						</div>
 						<CircularProgressBar
-							progress={(readPages / totPages) * 100}
+							progress={(readPages / pages) * 100}
 							cssClass="circ-progress"
 						/>
 					</div>
@@ -114,7 +109,7 @@ const ListElement = ({
 							<div className="subtitle-container">
 								<span className="big-author">{author}</span>
 								<SvgSeparator className=" separator" />
-								<span className="big-date">{date.toString()}</span>
+								<span className="big-date">{releaseDate.toString()}</span>
 							</div>
 							<div className="buttons-container">
 								<button className=" action-button">Modify</button>
