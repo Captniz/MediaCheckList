@@ -37,7 +37,7 @@ const PopUpFilter: React.FC<Props> = ({
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [isOpen]);
+	}, [isOpen, onClose]);
 
 	// Close on outside click
 	useEffect(() => {
@@ -54,13 +54,48 @@ const PopUpFilter: React.FC<Props> = ({
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
+	}, [isOpen, onClose]);
+
+	//Close and submit on "Enter" key
+	useEffect(() => {
+		if (!isOpen) return;
+
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Enter") {
+				const finalFilters: Record<string, string> = {};
+
+				Object.entries(filter).forEach(([tag, { op, value }]) => {
+					if (value.trim() !== "") {
+						const key = op === "eq" ? tag : `${tag}${op}`;
+						finalFilters[key] = value;
+					}
+				});
+
+				onApplyFilters(finalFilters);
+				setFilter({});
+				onClose();
+			}
+		};
+
+		const popupElement = popupRef.current;
+		popupElement?.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			popupElement?.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isOpen, filter, onApplyFilters, onClose]);
+
+	useEffect(() => {
+		if (isOpen && popupRef.current) {
+			popupRef.current.focus();
+		}
 	}, [isOpen]);
 
 	if (!isOpen) return null;
 
 	return (
 		<div className="popup-container">
-			<div ref={popupRef} className="popup-window">
+			<div ref={popupRef} className="popup-window" tabIndex={-1}>
 				<h2 className="text-xl font-bold mb-4">Filtering Options</h2>
 				<div>
 					{Object.entries(filtersOptions).map(([key, value]) => (
