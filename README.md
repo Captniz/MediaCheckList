@@ -96,3 +96,4 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Implementa Le immagini
 - Aggiungi fuzzy-find per le ricerche
 - Tieni a memoria e display dei filtri attivi
+- Sistema il filter popup pk è brutto e il modo per passargli i filtri fa schifo
