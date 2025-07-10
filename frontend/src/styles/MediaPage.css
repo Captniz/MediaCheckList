@@ -59,6 +59,42 @@
 	color: var(--hard-accent);
 }
 
+.page-filters input {
+	width: 8vw;
+	height: 3vh;
+	background: none;
+	border: none;
+	font-family: "Poppins";
+	font-size: 1em;
+	color: black;
+	transition: width 0.3s ease-in-out;
+}
+
+.page-filters input:focus {
+	outline: none;
+	width: 25vw;
+	overflow: visible;
+	border-bottom: 2px solid var(--hard-accent);
+}
+
+.page-filters input:not(:placeholder-shown) {
+	width: 25vw;
+	overflow: visible;
+	border-bottom: 2px solid var(--hard-accent);
+}
+
+.page-filters input::placeholder {
+	color: black;
+	font-family: "Poppins";
+	font-weight: 400;
+}
+
+.page-filters input:focus::placeholder {
+	color: var(--soft-gray);
+	transition: color 0.3s ease-in-out;
+}
+
+
 .page-filters button {
 	background-color: var(--hard-accent);
 	color: white;

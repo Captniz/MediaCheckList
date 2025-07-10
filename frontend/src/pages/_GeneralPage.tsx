@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import PopUpFilter from "../components/FilterPopUp";
 
@@ -6,18 +6,20 @@ import { ItemBase } from "../../../types/item";
 
 import "../styles/MediaPage.css";
 
-// This function returns an anonymous function ( That returns a React html element )
-//
+// ?This function returns an anonymous function ( That returns a React html element )
+
 // Arguments :
-//
-// - sectionName : String that is used for determining the path other than any labels relative to this page
 // - ListElementComponent : The ListElement component specific for the elements rapresented
-// - filterOptions : The options displayed in the filter choice popUp 
-// TODO: (FILTERS IMPLEMENTED TERRIBLY, FIX THIS : THEY ARE THE SAME FIELDS CONTAINED IN T)
+// - filterOptions : The options displayed in the filter choice popUp
 
 export function createGeneralPage<T extends ItemBase>(options: {
+	// Name of the section, used for the title, labels and path
 	sectionName: string;
+
+	// Component that will be used to render each element in the list
 	ListElementComponent: React.FC<T & { ctr: number }>;
+
+	// Options for the filter pop-up, containing the filters to be applied
 	filterOptions: Record<string, any>;
 }) {
 	// Save the options passed to the function to a constant
@@ -28,13 +30,60 @@ export function createGeneralPage<T extends ItemBase>(options: {
 
 	// Return an anonymous function that returns a React component
 	return () => {
+		//===== STATE MANAGEMENT =====//
 
 		// State to hold the list of elements fetched from the API
 		const [elemList, setElemList] = useState<T[]>([]);
+
+		// State to manage the visibility of the filter pop-up
 		const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+		// State to hold the selected filters from the filter pop-up
 		const [selectedFilters, setSelectedFilters] = useState<
 			Record<string, string>
 		>({});
+
+		// State to hold the search query entered by the user
+		const [searchQuery, setSearchQuery] = useState("");
+
+		//===== EFFECTS AND EVENT HANDLERS =====//
+
+		// Ref to the search input element to manage focus and blur
+		const searchInputRef = useRef<HTMLInputElement>(null);
+
+		// Effect to handle the "/" key press to focus the search input
+		useEffect(() => {
+			const handleSlashKey = (e: KeyboardEvent) => {
+				// Ignore if typing inside an input already
+				const isTyping =
+					(e.target as HTMLElement).tagName === "INPUT" ||
+					(e.target as HTMLElement).tagName === "TEXTAREA" ||
+					(e.target as HTMLElement).isContentEditable;
+
+				if (e.key === "/" && !isTyping) {
+					e.preventDefault(); // Prevent browser search
+					searchInputRef.current?.focus();
+				}
+			};
+
+			document.addEventListener("keydown", handleSlashKey);
+			return () => document.removeEventListener("keydown", handleSlashKey);
+		}, []);
+
+		// Effect to handle the Escape key to clear search and unfocus input
+		useEffect(() => {
+			const handleEscapeKey = (e: KeyboardEvent) => {
+				if (e.key === "Escape") {
+					if (document.activeElement === searchInputRef.current) {
+						setSearchQuery(""); // Clear search
+						searchInputRef.current?.blur(); // Unfocus input
+					}
+				}
+			};
+
+			document.addEventListener("keydown", handleEscapeKey);
+			return () => document.removeEventListener("keydown", handleEscapeKey);
+		}, []);
 
 		// Function to fetch elements from the API based on the section name and filters
 		const fetchElements = async (
@@ -45,7 +94,13 @@ export function createGeneralPage<T extends ItemBase>(options: {
 				method: "GET",
 			};
 
-			const queryParams = new URLSearchParams(filters).toString();
+			const params = { ...filters };
+			if (searchQuery.trim() !== "") {
+				params["title"] = searchQuery;
+			}
+
+			const queryParams = new URLSearchParams(params).toString();
+
 			const url = `/api/${apiName}/search?${queryParams}`;
 
 			console.log("Fetching from URL:", url);
@@ -79,9 +134,9 @@ export function createGeneralPage<T extends ItemBase>(options: {
 		// Use useEffect to fetch elements when the component mounts or when selectedFilters change
 		useEffect(() => {
 			getElems();
-		}, [selectedFilters]);
+		}, [selectedFilters, searchQuery]);
 
-
+		//===== RENDERING =====//
 		return (
 			<div className="home">
 				<Navbar title={sectionName} path={path} />
@@ -93,9 +148,14 @@ export function createGeneralPage<T extends ItemBase>(options: {
 						</h3>
 					</div>
 					<div className="page-filters">
-						<p>
-							Press <span>/</span> to search
-						</p>
+						<input
+							type="text"
+							placeholder="Press / to search"
+							value={searchQuery}
+							onChange={(e) => setSearchQuery(e.target.value)}
+							ref={searchInputRef}
+							className="search-input"
+						/>
 						<p className="sep"></p>
 						<button onClick={() => setIsPopupOpen(true)}>Filter</button>
 						<button>Sort</button>
