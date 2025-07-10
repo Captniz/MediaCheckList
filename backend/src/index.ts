@@ -1,10 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import bookRoutes from './routes/books';
+import bookRoutes from './routes/book';
 import animeRoutes from './routes/anime';
-import filmRoutes from './routes/films';
-import gameRoutes from './routes/games';
+import filmRoutes from './routes/film';
+import gameRoutes from './routes/game';
 import seriesRoutes from './routes/series';
 import mangaRoutes from './routes/manga';
 

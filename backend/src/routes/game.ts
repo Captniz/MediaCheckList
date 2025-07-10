@@ -1,5 +1,5 @@
 import express from "express";
-import gamesController from "../controllers/games";
+import gamesController from "../controllers/game";
 
 const Router = express.Router();
 
@@ -9,7 +9,7 @@ const Router = express.Router();
 Router.get("/", gamesController.GETAllGame);
 
 // ALL FILTERED games
-Router.get("/search", gamesController.GETFilteredGame);
+Router.get("/search", gamesController.GETFilterGame);
 
 // #============= END GET =============#
 
