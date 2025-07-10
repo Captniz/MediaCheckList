@@ -60,6 +60,7 @@
 }
 
 .page-filters input {
+	margin-right: 1.5em;
 	width: 8vw;
 	height: 3vh;
 	background: none;
