@@ -2,26 +2,41 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import PopUpFilter from "../components/FilterPopUp";
 
+import { ItemBase } from "../../../types/item";
+
 import "../styles/MediaPage.css";
 
-type BaseItem = { _id: string };
+// This function returns an anonymous function ( That returns a React html element )
+//
+// Arguments :
+//
+// - sectionName : String that is used for determining the path other than any labels relative to this page
+// - ListElementComponent : The ListElement component specific for the elements rapresented
+// - filterOptions : The options displayed in the filter choice popUp 
+// TODO: (FILTERS IMPLEMENTED TERRIBLY, FIX THIS : THEY ARE THE SAME FIELDS CONTAINED IN T)
 
-export function createGeneralPage<T extends BaseItem>(options: {
+export function createGeneralPage<T extends ItemBase>(options: {
 	sectionName: string;
 	ListElementComponent: React.FC<T & { ctr: number }>;
 	filterOptions: Record<string, any>;
 }) {
+	// Save the options passed to the function to a constant
 	const { sectionName, ListElementComponent, filterOptions } = options;
 
+	// Create a path based on the sectionName, converting it to lowercase
 	const path = "/" + sectionName.toLowerCase();
 
-	return function GeneralPage() {
+	// Return an anonymous function that returns a React component
+	return () => {
+
+		// State to hold the list of elements fetched from the API
 		const [elemList, setElemList] = useState<T[]>([]);
 		const [isPopupOpen, setIsPopupOpen] = useState(false);
 		const [selectedFilters, setSelectedFilters] = useState<
 			Record<string, string>
 		>({});
 
+		// Function to fetch elements from the API based on the section name and filters
 		const fetchElements = async (
 			apiName: string,
 			filters: Record<string, string> = {}
@@ -40,11 +55,12 @@ export function createGeneralPage<T extends BaseItem>(options: {
 			if (response.ok) {
 				return data.elements;
 			} else {
-				console.error("Error fetching books:", data);
+				console.error(`Error fetching ${sectionName}:`, data);
 				return null;
 			}
 		};
 
+		// Function to get elements when the component mounts or when filters change
 		const getElems = async () => {
 			const elems = await fetchElements(
 				sectionName.toLowerCase(),
@@ -55,13 +71,16 @@ export function createGeneralPage<T extends BaseItem>(options: {
 			}
 		};
 
+		// Function to handle applying filters from the filter pop-up
+		const handleApplyFilters = (filters: Record<string, string>) => {
+			setSelectedFilters(filters);
+		};
+
+		// Use useEffect to fetch elements when the component mounts or when selectedFilters change
 		useEffect(() => {
 			getElems();
 		}, [selectedFilters]);
 
-		const handleApplyFilters = (filters: Record<string, string>) => {
-			setSelectedFilters(filters);
-		};
 
 		return (
 			<div className="home">
