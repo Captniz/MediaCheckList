@@ -134,6 +134,7 @@ export function createGeneralPage<T extends ItemBase>(options: {
 		// Use useEffect to fetch elements when the component mounts or when selectedFilters change
 		useEffect(() => {
 			getElems();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [selectedFilters, searchQuery]);
 
 		//===== RENDERING =====//
