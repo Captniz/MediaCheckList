@@ -32,6 +32,9 @@ Router.delete("/:id", seriesController.DELETESeries);
 // Single series
 Router.patch("/:id", seriesController.PATCHSeries);
 
+// Increment value for a series
+Router.patch("/:id/increment", seriesController.PATCHIncrementValue);
+
 // #============= END PATCH =============#
 
 export default Router;

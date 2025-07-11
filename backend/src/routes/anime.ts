@@ -5,7 +5,6 @@ const Router = express.Router();
 
 // #=============== GET ===============#
 
-
 // ALL animes
 Router.get("/", animeController.GETAllAnime);
 
@@ -32,6 +31,9 @@ Router.delete("/:id", animeController.DELETEAnime);
 
 // Single anime
 Router.patch("/:id", animeController.PATCHAnime);
+
+// Increment value in anime
+Router.patch("/:id/increment", animeController.PATCHIncrementValue);
 
 // #============= END PATCH =============#
 

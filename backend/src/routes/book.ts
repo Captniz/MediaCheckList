@@ -32,6 +32,9 @@ Router.delete("/:id", bookController.DELETEBook);
 // Single book
 Router.patch("/:id", bookController.PATCHBook);
 
+// Increment read pages in book
+Router.patch("/:id/increment", bookController.PATCHIncrementValue);
+
 // #============= END PATCH =============#
 
 export default Router;

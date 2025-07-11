@@ -32,6 +32,9 @@ Router.delete("/:id", filmController.DELETEFilm);
 // Single film
 Router.patch("/:id", filmController.PATCHFilm);
 
+// Increment watched duration in film
+Router.patch("/:id/increment", filmController.PATCHIncrementValue);
+
 // #============= END PATCH =============#
 
 export default Router;

@@ -32,6 +32,9 @@ Router.delete("/:id", gamesController.DELETEGame);
 // Single games
 Router.patch("/:id", gamesController.PATCHGame);
 
+// Increment value in game
+Router.patch("/:id/increment", gamesController.PATCHIncrementValue);
+
 // #============= END PATCH =============#
 
 export default Router;

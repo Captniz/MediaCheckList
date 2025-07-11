@@ -32,6 +32,9 @@ Router.delete("/:id", mangaController.DELETEManga);
 // Single manga
 Router.patch("/:id", mangaController.PATCHManga);
 
+// Increment read pages in manga
+Router.patch("/:id/increment", mangaController.PATCHIncrementValue);
+
 // #============= END PATCH =============#
 
 export default Router;
