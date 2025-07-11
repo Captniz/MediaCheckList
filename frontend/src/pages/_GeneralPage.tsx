@@ -17,7 +17,12 @@ export function createGeneralPage<T extends ItemBase>(options: {
 	sectionName: string;
 
 	// Component that will be used to render each element in the list
-	ListElementComponent: React.FC<T & { ctr: number }>;
+	ListElementComponent: React.FC<
+		T & {
+			ctr: number;
+			onIncrement: (id: string, field: string, value: number) => void;
+		}
+	>;
 
 	// Options for the filter pop-up, containing the filters to be applied
 	filterOptions: Record<string, any>;
@@ -27,6 +32,9 @@ export function createGeneralPage<T extends ItemBase>(options: {
 
 	// Create a path based on the sectionName, converting it to lowercase
 	const path = "/" + sectionName.toLowerCase();
+
+	// Create an API name based on the sectionName, converting it to lowercase
+	const apiName = sectionName.toLowerCase();
 
 	// Return an anonymous function that returns a React component
 	return () => {
@@ -86,10 +94,7 @@ export function createGeneralPage<T extends ItemBase>(options: {
 		}, []);
 
 		// Function to fetch elements from the API based on the section name and filters
-		const fetchElements = async (
-			apiName: string,
-			filters: Record<string, string> = {}
-		) => {
+		const fetchElements = async (filters: Record<string, string> = {}) => {
 			const requestOptions = {
 				method: "GET",
 			};
@@ -117,25 +122,69 @@ export function createGeneralPage<T extends ItemBase>(options: {
 
 		// Function to get elements when the component mounts or when filters change
 		const getElems = async () => {
-			const elems = await fetchElements(
-				sectionName.toLowerCase(),
-				selectedFilters
-			);
+			const elems = await fetchElements(selectedFilters);
 			if (elems) {
 				setElemList(elems);
 			}
 		};
 
 		// Function to handle applying filters from the filter pop-up
-		const handleApplyFilters = (filters: Record<string, string>) => {
+		const handleApplyFilters = async (filters: Record<string, string>) => {
 			setSelectedFilters(filters);
 		};
 
 		// Use useEffect to fetch elements when the component mounts or when selectedFilters change
 		useEffect(() => {
 			getElems();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [selectedFilters, searchQuery]);
+
+		const handleAddPage = async (
+			id: string,
+			_field: string,
+			incValue: number
+		) => {
+			const url = `/api/${apiName}/${id}/increment`;
+
+			const requestOptions = {
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					field: _field,
+					value: incValue,
+				}),
+			};
+
+			try {
+				const response: Response = await fetch(url, requestOptions);
+				const data = await response.json();
+
+				if (response.ok) {
+					console.log(`${_field} incremented successfully`, data);
+					if (_field === "readPages" || _field === "pages") {
+						setElemList((prev) =>
+							prev.map((el) =>
+								el._id === id
+									? {
+											...el,
+											[_field]: (el as any)[_field] + incValue,
+									  }
+									: el
+							)
+						);
+					}
+					return data.elements; // or just return `data` depending on your structure
+				} else {
+					console.error(`Error incrementing ${_field}:`, data);
+					return null;
+				}
+			} catch (err) {
+				console.error("Request failed:", err);
+				return null;
+			}
+		};
 
 		//===== RENDERING =====//
 		return (
@@ -165,7 +214,12 @@ export function createGeneralPage<T extends ItemBase>(options: {
 
 				<div className="media-page">
 					{elemList.map((item, index) => (
-						<ListElementComponent key={item._id} {...item} ctr={index + 1} />
+						<ListElementComponent
+							key={item._id}
+							{...item}
+							ctr={index + 1}
+							onIncrement={handleAddPage}
+						/>
 					))}
 				</div>
 

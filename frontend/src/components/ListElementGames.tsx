@@ -3,16 +3,21 @@ import "../styles/ListElement.css";
 import { ReactComponent as SvgCounterDot } from "../assets/counterDot.svg";
 import { ReactComponent as SvgAddPage } from "../assets/addPage.svg";
 import { ReactComponent as SvgSeparator } from "../assets/separator.svg";
+import { ReactComponent as SvgCompleted } from "../assets/completed.svg";
 import CircularProgressBar from "./CircularProgressBar";
 import ReactMarkdown from "react-markdown";
 
 import { FC } from "react";
 import { Game } from "../../../types/item";
 
-type ListElementProps = Game & { ctr: number };
+type Props = Game & {
+	ctr: number;
+	onIncrement: (id: string, field: string, value: number) => void;
+};
 
-const ListElement: FC<ListElementProps> = (props) => {
+const ListElement: FC<Props> = (props) => {
 	const {
+		_id,
 		title,
 		author,
 		genre,
@@ -25,6 +30,7 @@ const ListElement: FC<ListElementProps> = (props) => {
 		achievements,
 		feltCompletion,
 		ctr,
+		onIncrement,
 	} = props;
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +44,8 @@ const ListElement: FC<ListElementProps> = (props) => {
 	};
 
 	const statusClass = statusColors[status] || "";
+
+	const achievementGame = achievements !== 0;
 
 	return (
 		<div
@@ -63,11 +71,32 @@ const ListElement: FC<ListElementProps> = (props) => {
 				</div>
 				<div className="center-container">
 					<div className="progress-counter">
-						<button onClick={() => {}}>
-							<SvgAddPage className=" add-page" />
+						<button
+							disabled={
+								achievementGame
+									? achievements >= achievementNumber
+									: feltCompletion >= 100
+							}
+							onClick={() => {
+								achievementGame
+									? onIncrement(_id, "achievements", 1)
+									: onIncrement(_id, "feltCompletion", 1);
+							}}
+						>
+							{achievementGame ? (
+								achievements >= achievementNumber ? (
+									<SvgCompleted className="completed-icon" />
+								) : (
+									<SvgAddPage className="add-page-icon" />
+								)
+							) : feltCompletion >= 100 ? (
+								<SvgCompleted className="completed-icon" />
+							) : (
+								<SvgAddPage className="add-page-icon" />
+							)}
 						</button>
 						<div className="progress-num">
-							{achievements !== 0 ? (
+							{achievementGame ? (
 								<>
 									<span>{achievements}</span>
 									<span>/</span>
@@ -85,7 +114,7 @@ const ListElement: FC<ListElementProps> = (props) => {
 						</div>
 						<CircularProgressBar
 							progress={
-								achievements !== 0
+								achievementGame
 									? (achievements / achievementNumber) * 100
 									: feltCompletion
 							}

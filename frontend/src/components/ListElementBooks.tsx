@@ -3,16 +3,21 @@ import "../styles/ListElement.css";
 import { ReactComponent as SvgCounterDot } from "../assets/counterDot.svg";
 import { ReactComponent as SvgAddPage } from "../assets/addPage.svg";
 import { ReactComponent as SvgSeparator } from "../assets/separator.svg";
+import { ReactComponent as SvgCompleted } from "../assets/completed.svg";
 import CircularProgressBar from "./CircularProgressBar";
 import ReactMarkdown from "react-markdown";
 
 import { FC } from "react";
 import { Book } from "../../../types/item";
 
-type ListElementProps = Book & { ctr: number };
+type Props = Book & {
+	ctr: number;
+	onIncrement: (id: string, field: string, value: number) => void;
+};
 
-const ListElement: FC<ListElementProps> = (props) => {
+const ListElement: FC<Props> = (props) => {
 	const {
+		_id,
 		title,
 		author,
 		genre,
@@ -23,7 +28,8 @@ const ListElement: FC<ListElementProps> = (props) => {
 		notes,
 		pages,
 		readPages,
-		ctr
+		ctr,
+		onIncrement,
 	} = props;
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -62,8 +68,18 @@ const ListElement: FC<ListElementProps> = (props) => {
 				</div>
 				<div className="center-container">
 					<div className="progress-counter">
-						<button onClick={() => {}}>
-							<SvgAddPage className=" add-page" />
+						<button
+							disabled={readPages >= pages}
+							onClick={() => {
+								onIncrement(_id, "readPages", 1);
+								//TODO: Change status to completed if all pages are read
+							}}
+						>
+							{readPages >= pages ? (
+								<SvgCompleted className=" completed-page" />
+							) : (
+								<SvgAddPage className=" add-page" />
+							)}
 						</button>
 						<div className="progress-num">
 							<span>{readPages}</span>
