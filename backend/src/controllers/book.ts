@@ -36,6 +36,10 @@ const PATCHBook = async (req: Request, res: Response) => {
 	return GeneralController.PATCH_Single(BookModel, req, res);
 };
 
+const PATCHIncrementValue = async (req: Request, res: Response) => {
+	return GeneralController.PATCH_IncrementValue(BookModel, req, res);
+};
+
 // #=========== END PATCH ===========#
 
 export default {
@@ -44,4 +48,5 @@ export default {
 	DELETEBook,
 	PATCHBook,
 	GETFilterBook,
+	PATCHIncrementValue
 };

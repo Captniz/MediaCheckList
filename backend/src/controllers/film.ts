@@ -36,6 +36,10 @@ const PATCHFilm = async (req: Request, res: Response) => {
 	return GeneralController.PATCH_Single(FilmModel, req, res);
 };
 
+const PATCHIncrementValue = async (req: Request, res: Response) => {
+	return GeneralController.PATCH_IncrementValue(FilmModel, req, res);
+};
+
 // #=========== END PATCH ===========#
 
 export default {
@@ -44,4 +48,5 @@ export default {
 	DELETEFilm,
 	PATCHFilm,
 	GETFilterFilm,
+	PATCHIncrementValue
 };

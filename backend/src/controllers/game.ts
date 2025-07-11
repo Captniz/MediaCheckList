@@ -36,6 +36,10 @@ const PATCHGame = async (req: Request, res: Response) => {
 	return GeneralController.PATCH_Single(GameModel, req, res);
 };
 
+const PATCHIncrementValue = async (req: Request, res: Response) => {
+	return GeneralController.PATCH_IncrementValue(GameModel, req, res);
+};
+
 // #=========== END PATCH ===========#
 
 export default {
@@ -44,4 +48,5 @@ export default {
 	DELETEGame,
 	PATCHGame,
 	GETFilterGame,
+	PATCHIncrementValue
 };

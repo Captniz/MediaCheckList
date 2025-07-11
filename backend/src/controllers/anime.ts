@@ -1,6 +1,7 @@
 import AnimeModel from "../models/anime";
 import { Request, Response } from "express";
 import GeneralController from "./_GeneralController";
+import anime from "../models/anime";
 
 // #============= GET =============#
 
@@ -36,12 +37,17 @@ const PATCHAnime = async (req: Request, res: Response) => {
 	return GeneralController.PATCH_Single(AnimeModel, req, res);
 };
 
+const PATCHIncrementValue = async (req: Request, res: Response) => {
+	return GeneralController.PATCH_IncrementValue(AnimeModel, req, res);
+};
+
 // #=========== END PATCH ===========#
 
 export default {
 	GETAllAnime,
 	POSTAnime,
 	DELETEAnime,
-	PATCHAnime,
 	GETFilterAnime,
+	PATCHAnime,
+	PATCHIncrementValue
 };

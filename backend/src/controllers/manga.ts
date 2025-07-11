@@ -36,6 +36,10 @@ const PATCHManga = async (req: Request, res: Response) => {
 	return GeneralController.PATCH_Single(MangaModel, req, res);
 };
 
+const PATCHIncrementValue = async (req: Request, res: Response) => {
+	return GeneralController.PATCH_IncrementValue(MangaModel, req, res);
+};
+
 // #=========== END PATCH ===========#
 
 export default {
@@ -44,4 +48,5 @@ export default {
 	DELETEManga,
 	PATCHManga,
 	GETFilterManga,
+	PATCHIncrementValue
 };

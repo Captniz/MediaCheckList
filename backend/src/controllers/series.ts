@@ -36,6 +36,9 @@ const PATCHSeries = async (req: Request, res: Response) => {
 	return GeneralController.PATCH_Single(SeriesModel, req, res);
 };
 
+const PATCHIncrementValue = async (req: Request, res: Response) => {
+	return GeneralController.PATCH_IncrementValue(SeriesModel, req, res);
+};
 // #=========== END PATCH ===========#
 
 export default {
@@ -44,4 +47,5 @@ export default {
 	DELETESeries,
 	PATCHSeries,
 	GETFilterSeries,
+	PATCHIncrementValue
 };

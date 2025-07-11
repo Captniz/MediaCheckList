@@ -5,20 +5,26 @@ import { Request, Response } from "express";
 
 // ALL books
 async function GET_All<ModelType>(
-    model: Model<ModelType>, 
-    req: Request, 
-    res: Response
+	model: Model<ModelType>,
+	req: Request,
+	res: Response
 ) {
 	try {
 		const elements = await model.find().sort({ title: 1 });
 		res.status(200).json({ message: `All ${model.modelName}`, elements });
 	} catch (err) {
-		res.status(500).json({ message: `Error searching ${model.modelName}`, error: err });
+		res
+			.status(500)
+			.json({ message: `Error searching ${model.modelName}`, error: err });
 	}
 }
 
 // GET ALL FILTERED books
-async function GET_Filtered<ModelType>(model: Model<ModelType>,req: Request, res: Response) {
+async function GET_Filtered<ModelType>(
+	model: Model<ModelType>,
+	req: Request,
+	res: Response
+) {
 	try {
 		const { sortBy = "title", sortOrder = "desc", ...rawFilters } = req.query;
 
@@ -56,9 +62,15 @@ async function GET_Filtered<ModelType>(model: Model<ModelType>,req: Request, res
 
 		res
 			.status(200)
-			.json({ message: `Filtered ${model.modelName}`, by: { ...req.query }, elements });
+			.json({
+				message: `Filtered ${model.modelName}`,
+				by: { ...req.query },
+				elements,
+			});
 	} catch (err) {
-		res.status(500).json({ message: `Error searching ${model.modelName}`, error: err });
+		res
+			.status(500)
+			.json({ message: `Error searching ${model.modelName}`, error: err });
 	}
 }
 
@@ -67,21 +79,33 @@ async function GET_Filtered<ModelType>(model: Model<ModelType>,req: Request, res
 // #============= POST =============#
 
 // ONE book
-async function POST_Single<ModelType> (model: Model<ModelType>,req: Request, res: Response) {
+async function POST_Single<ModelType>(
+	model: Model<ModelType>,
+	req: Request,
+	res: Response
+) {
 	try {
 		const elements = await model.create({ ...req.body });
-		res.status(201).json({ message: `${model.modelName} added successfully`, elements });
+		res
+			.status(201)
+			.json({ message: `${model.modelName} added successfully`, elements });
 	} catch (err) {
-		res.status(500).json({ message: `Error adding ${model.modelName}`, error: err });
+		res
+			.status(500)
+			.json({ message: `Error adding ${model.modelName}`, error: err });
 	}
-};
+}
 
 // #=========== END POST ===========#
 
 // #============= DELETE =============#
 
 // ONE book
-async function DELETE_Single<ModelType>  (model: Model<ModelType>,req: Request, res: Response) {
+async function DELETE_Single<ModelType>(
+	model: Model<ModelType>,
+	req: Request,
+	res: Response
+) {
 	try {
 		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
 			res.status(404).json({ message: `Invalid ${model.modelName} id` });
@@ -94,18 +118,26 @@ async function DELETE_Single<ModelType>  (model: Model<ModelType>,req: Request, 
 			res.status(404).json({ message: `${model.modelName} not found` });
 			return;
 		} else {
-			res.status(200).json({ message: `${model.modelName} deleted successfully`, elements });
+			res
+				.status(200)
+				.json({ message: `${model.modelName} deleted successfully`, elements });
 		}
 	} catch (err) {
-		res.status(500).json({ message: `Error searching ${model.modelName}`, error: err });
+		res
+			.status(500)
+			.json({ message: `Error searching ${model.modelName}`, error: err });
 	}
-};
+}
 
 // #=========== END DELETE ===========#
 
 // #============= PATCH =============#
 
-async function PATCH_Single<ModelType> (model: Model<ModelType>,req: Request, res: Response) {
+async function PATCH_Single<ModelType>(
+	model: Model<ModelType>,
+	req: Request,
+	res: Response
+) {
 	try {
 		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
 			res.status(404).json({ message: `Invalid ${model.modelName} id` });
@@ -129,16 +161,54 @@ async function PATCH_Single<ModelType> (model: Model<ModelType>,req: Request, re
 			});
 		}
 	} catch (err) {
-		res.status(500).json({ message: `Error searching ${model.modelName}`, error: err });
+		res
+			.status(500)
+			.json({ message: `Error searching ${model.modelName}`, error: err });
 	}
-};
+}
+
+async function PATCH_IncrementValue<ModelType>(
+	model: Model<ModelType>,
+	req: Request,
+	res: Response
+) {
+	try {
+		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+			res.status(404).json({ message: `Invalid ${model.modelName} id` });
+			return;
+		}
+
+		const { field, value } = req.body;
+
+		const elements = await model.findOneAndUpdate(
+			{ _id: req.params.id },
+			{ $inc: { [field]: value } },
+			{ new: true }
+		);
+
+		if (!elements) {
+			res.status(404).json({ message: `${model.modelName} not found` });
+			return;
+		} else {
+			res.status(200).json({
+				message: `${model.modelName} modified successfully`,
+				elements,
+			});
+		}
+	} catch (err) {
+		res
+			.status(500)
+			.json({ message: `Error searching ${model.modelName}`, error: err });
+	}
+}
 
 // #=========== END PATCH ===========#
 
 export default {
-    GET_All,
-    GET_Filtered,
-    POST_Single,
-    DELETE_Single,
-    PATCH_Single
+	GET_All,
+	GET_Filtered,
+	POST_Single,
+	DELETE_Single,
+	PATCH_Single,
+	PATCH_IncrementValue,
 };
