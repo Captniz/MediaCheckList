@@ -97,3 +97,7 @@ As I grew tired of using multiple apps to keep track of my media, I decided to c
 - Aggiungi fuzzy-find per le ricerche
 - Tieni a memoria e display dei filtri attivi
 - Sistema il filter popup pk è brutto e il modo per passargli i filtri fa schifo
+- Change status to completed if all pages are read
+- Fix the error where in fils you can exceed the maxduration (+60 every increment)
+- Add a manu for fast increase in pages read
+- Simplify / removed duplicate code from listelements and the handleIncrement function
